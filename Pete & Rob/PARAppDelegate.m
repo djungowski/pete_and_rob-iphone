@@ -23,7 +23,6 @@
     self.viewController = [[PARViewController alloc] initWithNibName:@"PARViewController" bundle:nil];
     
     self.navController = [[UINavigationController alloc] initWithNavigationBarClass:[PARNavigationBar class] toolbarClass:nil];
-//    self.navController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
     [self.navController pushViewController:self.viewController animated:YES];
     
     self.window.rootViewController = self.navController;
@@ -35,9 +34,9 @@
     
     PARXMLParserDelegate *parserDelegate = [[PARXMLParserDelegate alloc] init];
     [parser setDelegate:parserDelegate];
-    [parser setShouldProcessNamespaces:NO]; // We don't care about namespaces
-    [parser setShouldReportNamespacePrefixes:NO]; //
-    [parser setShouldResolveExternalEntities:NO]; // We just want data, no other stuff
+//    [parser setShouldProcessNamespaces:NO]; // We don't care about namespaces
+//    [parser setShouldReportNamespacePrefixes:NO]; //
+//    [parser setShouldResolveExternalEntities:NO]; // We just want data, no other stuff
     [parser parse];
     
     self.videos = parserDelegate.videos;

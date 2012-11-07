@@ -11,6 +11,7 @@
 @implementation PARVideo
 @synthesize title;
 @synthesize url;
+@synthesize image;
 
 - (id)init
 {

@@ -16,7 +16,9 @@
     if (self) {
         // Initialization code
         UIImage *background = [UIImage imageNamed:@"navigation-bar.png"];
+        UIImage *backgroundLandscape = [UIImage imageNamed:@"navigation-bar-landscape.png"];
         [self setBackgroundImage:background forBarMetrics:UIBarMetricsDefault];
+        [self setBackgroundImage:backgroundLandscape forBarMetrics:UIBarMetricsLandscapePhone];
     }
     return self;
 }

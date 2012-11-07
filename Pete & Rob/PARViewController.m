@@ -17,6 +17,8 @@
 
 @implementation PARViewController
 
+@synthesize tableView;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -60,6 +62,7 @@
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     cell.textLabel.text = video.title;
+    cell.imageView.image = video.image;
     return cell;
 }
 
