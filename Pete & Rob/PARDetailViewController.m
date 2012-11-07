@@ -53,10 +53,28 @@
 
     NSURL *url = [NSURL URLWithString:video.url];
     moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayBackDidFinish:)
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+                                               object:moviePlayer];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(moviePlayBackDidFinish:)
+                                                 name:MPMoviePlayerWillExitFullscreenNotification
+                                               object:moviePlayer];
+    
+    
     moviePlayer.controlStyle = MPMovieControlStyleFullscreen;
     moviePlayer.shouldAutoplay = YES;
     [self.view addSubview:moviePlayer.view];
     [moviePlayer setFullscreen:YES animated:YES];
+}
+
+- (void) moviePlayBackDidFinish:(NSNotification*)notification
+{
+    [moviePlayer.view removeFromSuperview];
+    [self.playButton setHighlighted:NO];
 }
 
 - (void)didReceiveMemoryWarning
