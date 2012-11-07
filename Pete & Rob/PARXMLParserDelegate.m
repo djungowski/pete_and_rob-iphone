@@ -33,6 +33,12 @@
     if ([elementName isEqualToString: @"item"]) {
         currentVideo = [[PARVideo alloc] init];
     }
+    else if ([elementName isEqualToString:@"itunes:image"]) {
+        NSString *imageString = [[attributeDict objectForKey:@"href"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSURL *imageURL = [NSURL URLWithString:imageString];
+        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+        currentVideo.image = [UIImage imageWithData:imageData];
+    }
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
@@ -43,14 +49,6 @@
     
     else if ([elementName isEqualToString: @"guid"]) {
         currentVideo.url = [currentProperty stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    }
-    
-    else if ([elementName isEqualToString:@"itunes:image"]) {
-        NSString *imageString = [currentProperty stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        NSURL *imageUrl = [NSURL URLWithString:imageString];
-        NSData *imageData = [NSData dataWithContentsOfURL:imageUrl];
-        UIImage *image = [UIImage imageWithData:imageData];
-        currentVideo.image = image;
     }
     
     else if ([elementName isEqualToString: @"item"] && currentVideo) {
