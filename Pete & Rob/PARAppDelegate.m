@@ -29,18 +29,6 @@
     
     self.videos = [[NSMutableArray alloc] init];
     
-    NSURL* url = [NSURL URLWithString:@"http://www.peteandrob.com/rss/podcast.php"];
-    NSXMLParser* parser = [[NSXMLParser alloc] initWithContentsOfURL:url];
-    
-    PARXMLParserDelegate *parserDelegate = [[PARXMLParserDelegate alloc] init];
-    [parser setDelegate:parserDelegate];
-//    [parser setShouldProcessNamespaces:NO]; // We don't care about namespaces
-//    [parser setShouldReportNamespacePrefixes:NO]; //
-//    [parser setShouldResolveExternalEntities:NO]; // We just want data, no other stuff
-    [parser parse];
-    
-    self.videos = parserDelegate.videos;
-    
     [self.window makeKeyAndVisible];
     return YES;
 }

@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PARViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface PARViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+    NSMutableArray *videos;
+}
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end
