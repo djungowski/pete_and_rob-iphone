@@ -30,6 +30,10 @@
 		96C5E83E164AA1F00011843D /* navigation-bar-landscape-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96C5E83B164AA1F00011843D /* navigation-bar-landscape-568h@2x.png */; };
 		96C5E83F164AA1F00011843D /* navigation-bar-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 96C5E83C164AA1F00011843D /* navigation-bar-landscape.png */; };
 		96C5E840164AA1F00011843D /* navigation-bar-landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96C5E83D164AA1F00011843D /* navigation-bar-landscape@2x.png */; };
+		96C5E844164AA33B0011843D /* PARDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C5E842164AA33B0011843D /* PARDetailViewController.m */; };
+		96C5E845164AA33B0011843D /* PARDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96C5E843164AA33B0011843D /* PARDetailViewController.xib */; };
+		96C5E848164AA72D0011843D /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96C5E847164AA72D0011843D /* play@2x.png */; };
+		96C5E84C164AA9E90011843D /* play-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96C5E84B164AA9E90011843D /* play-highlighted@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +68,11 @@
 		96C5E83B164AA1F00011843D /* navigation-bar-landscape-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation-bar-landscape-568h@2x.png"; sourceTree = "<group>"; };
 		96C5E83C164AA1F00011843D /* navigation-bar-landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation-bar-landscape.png"; sourceTree = "<group>"; };
 		96C5E83D164AA1F00011843D /* navigation-bar-landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation-bar-landscape@2x.png"; sourceTree = "<group>"; };
+		96C5E841164AA33B0011843D /* PARDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARDetailViewController.h; sourceTree = "<group>"; };
+		96C5E842164AA33B0011843D /* PARDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARDetailViewController.m; sourceTree = "<group>"; };
+		96C5E843164AA33B0011843D /* PARDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PARDetailViewController.xib; sourceTree = "<group>"; };
+		96C5E847164AA72D0011843D /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
+		96C5E84B164AA9E90011843D /* play-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-highlighted@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,11 +126,9 @@
 		9615E5DB1649A58E00C2B37F /* Pete & Rob */ = {
 			isa = PBXGroup;
 			children = (
+				96C5E846164AA4100011843D /* Controller */,
 				9615E5E41649A58E00C2B37F /* PARAppDelegate.h */,
 				9615E5E51649A58E00C2B37F /* PARAppDelegate.m */,
-				9615E5ED1649A58E00C2B37F /* PARViewController.h */,
-				9615E5EE1649A58E00C2B37F /* PARViewController.m */,
-				9615E5F01649A58E00C2B37F /* PARViewController.xib */,
 				9615E5DC1649A58E00C2B37F /* Supporting Files */,
 				9615E6001649B86600C2B37F /* PARVideo.h */,
 				9615E6011649B86700C2B37F /* PARVideo.m */,
@@ -148,6 +155,8 @@
 		96556C84164A34BD00FE9186 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				96C5E84B164AA9E90011843D /* play-highlighted@2x.png */,
+				96C5E847164AA72D0011843D /* play@2x.png */,
 				96C5E83B164AA1F00011843D /* navigation-bar-landscape-568h@2x.png */,
 				96C5E83C164AA1F00011843D /* navigation-bar-landscape.png */,
 				96C5E83D164AA1F00011843D /* navigation-bar-landscape@2x.png */,
@@ -156,6 +165,19 @@
 				96556CA0164A57BB00FE9186 /* navigation-bar@2x.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		96C5E846164AA4100011843D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				96C5E841164AA33B0011843D /* PARDetailViewController.h */,
+				96C5E842164AA33B0011843D /* PARDetailViewController.m */,
+				96C5E843164AA33B0011843D /* PARDetailViewController.xib */,
+				9615E5ED1649A58E00C2B37F /* PARViewController.h */,
+				9615E5EE1649A58E00C2B37F /* PARViewController.m */,
+				9615E5F01649A58E00C2B37F /* PARViewController.xib */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +245,9 @@
 				96C5E83E164AA1F00011843D /* navigation-bar-landscape-568h@2x.png in Resources */,
 				96C5E83F164AA1F00011843D /* navigation-bar-landscape.png in Resources */,
 				96C5E840164AA1F00011843D /* navigation-bar-landscape@2x.png in Resources */,
+				96C5E845164AA33B0011843D /* PARDetailViewController.xib in Resources */,
+				96C5E848164AA72D0011843D /* play@2x.png in Resources */,
+				96C5E84C164AA9E90011843D /* play-highlighted@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +264,7 @@
 				9615E6021649B86700C2B37F /* PARVideo.m in Sources */,
 				96556C711649C33F00FE9186 /* PARXMLParserDelegate.m in Sources */,
 				96556C83164A34B600FE9186 /* PARNavigationBar.m in Sources */,
+				96C5E844164AA33B0011843D /* PARDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

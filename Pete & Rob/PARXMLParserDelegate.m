@@ -51,6 +51,10 @@
         currentVideo.url = [currentProperty stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     }
     
+    else if ([elementName isEqualToString: @"itunes:summary"]) {
+        currentVideo.description = [currentProperty stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    }
+    
     else if ([elementName isEqualToString: @"item"] && currentVideo) {
         [self.videos addObject:currentVideo];
         currentVideo = nil;

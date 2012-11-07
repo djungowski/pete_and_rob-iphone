@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MediaPlayer/MediaPlayer.h>
 
-@interface PARViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
-    MPMoviePlayerController *moviePlayer;
-}
+@interface PARViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

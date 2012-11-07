@@ -9,7 +9,7 @@
 #import "PARViewController.h"
 #import "PARAppDelegate.h"
 #import "PARVideo.h"
-#import <MediaPlayer/MediaPlayer.h>
+#import "PARDetailViewController.h"
 
 @interface PARViewController ()
 
@@ -23,7 +23,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.title = @"Pete & Rob";
+    self.title = @"Stopmotion";
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,14 +45,8 @@
     PARAppDelegate *delegate = (PARAppDelegate *)[[UIApplication sharedApplication] delegate];
     PARVideo *video = [delegate.videos objectAtIndex:indexPath.row];
     
-    NSLog(@"%@", video.url);
-    NSURL *url = [NSURL URLWithString:video.url];
-    moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
-    moviePlayer.controlStyle = MPMovieControlStyleFullscreen;
-    moviePlayer.shouldAutoplay = YES;
-    [self.view addSubview:moviePlayer.view];
-    [moviePlayer setFullscreen:YES animated:YES];
-    [moviePlayer play];
+    PARDetailViewController *controller = [[PARDetailViewController alloc] initWithVideo:video];
+    [delegate.navController pushViewController:controller animated:YES];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

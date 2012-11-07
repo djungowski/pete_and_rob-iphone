@@ -12,11 +12,6 @@
 @synthesize title;
 @synthesize url;
 @synthesize image;
-
-- (id)init
-{
-    self = [super init];
-    return self;
-}
+@synthesize description;
 
 @end
