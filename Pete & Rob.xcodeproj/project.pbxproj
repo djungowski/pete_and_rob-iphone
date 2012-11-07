@@ -88,7 +88,6 @@
 				96556C8F164A513600FE9186 /* Default@2x.png */,
 				96556C8D164A512300FE9186 /* Default.png */,
 				96556C8B164A4E3F00FE9186 /* logo-iphone-retina.png */,
-				96556C771649CB4A00FE9186 /* MediaPlayer.framework */,
 				9615E5F81649A6DF00C2B37F /* logo-iphone.png */,
 				9615E5DB1649A58E00C2B37F /* Pete & Rob */,
 				9615E5D41649A58E00C2B37F /* Frameworks */,
@@ -107,6 +106,7 @@
 		9615E5D41649A58E00C2B37F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				96556C771649CB4A00FE9186 /* MediaPlayer.framework */,
 				9615E5D51649A58E00C2B37F /* UIKit.framework */,
 				9615E5D71649A58E00C2B37F /* Foundation.framework */,
 				9615E5D91649A58E00C2B37F /* CoreGraphics.framework */,
