@@ -1,23 +1,30 @@
 //
-//  PARXMLParserDelegate.m
+//  PARDataVideos.m
 //  Pete & Rob
 //
-//  Created by Dominik Jungowski on 06.11.12.
+//  Created by Dominik Jungowski on 09.11.12.
 //  Copyright (c) 2012 Dominik Jungowski. All rights reserved.
 //
 
-#import "PARXMLParserDelegate.h"
+#import "PARDataVideos.h"
 
-@implementation PARXMLParserDelegate
+@implementation PARDataVideos
 
 @synthesize videos;
+
+- (void)load:(int)loadingStart
+{
+    self.videos = [[NSMutableArray alloc] init];
+    NSString *urlString = [NSString stringWithFormat:@"%@%d", @"http://www.peteandrob.com/rss/videos.php?start=", loadingStart];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    [self parse:data];
+}
 
 - (id)init
 {
     self = [super init];
     self.videos = [[NSMutableArray alloc] init];
-//    [self addParsingObserver:self];
-
     return self;
 }
 

@@ -1,16 +1,15 @@
 //
-//  PARXMLParserDelegate.h
+//  PARDataVideos.h
 //  Pete & Rob
 //
-//  Created by Dominik Jungowski on 06.11.12.
+//  Created by Dominik Jungowski on 09.11.12.
 //  Copyright (c) 2012 Dominik Jungowski. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "PARVideo.h"
+#import "PARVideo.h";
 
-@interface PARXMLParserDelegate : NSObject <NSXMLParserDelegate> {
-    NSMutableString *currentProperty;
+@interface PARDataVideos : NSObject {
     PARVideo *currentVideo;
 }
 
@@ -18,6 +17,7 @@
 @property int offset;
 @property int total;
 
+- (void)load:(int)loadingStart;
 - (NSMutableArray *)parse:(NSData *)responseData;
 - (void)parsingFinished:(NSNotification *)parsedVideos;
 - (void)addParsingObserver:(id)observer;

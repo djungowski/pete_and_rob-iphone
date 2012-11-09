@@ -9,7 +9,6 @@
 #import "PARAppDelegate.h"
 #import "PARVideosViewController.h"
 #import "PARVideo.h"
-#import "PARXMLParserDelegate.h"
 #import "PARNavigationBar.h"
 
 @implementation PARAppDelegate

@@ -15,7 +15,6 @@
 		9615E5E61649A58E00C2B37F /* PARAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9615E5E51649A58E00C2B37F /* PARAppDelegate.m */; };
 		9615E5F91649A6DF00C2B37F /* logo-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 9615E5F81649A6DF00C2B37F /* logo-iphone.png */; };
 		9615E6021649B86700C2B37F /* PARVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9615E6011649B86700C2B37F /* PARVideo.m */; };
-		96556C711649C33F00FE9186 /* PARXMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96556C701649C33F00FE9186 /* PARXMLParserDelegate.m */; };
 		96556C781649CB4A00FE9186 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96556C771649CB4A00FE9186 /* MediaPlayer.framework */; };
 		96556C83164A34B600FE9186 /* PARNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 96556C82164A34B600FE9186 /* PARNavigationBar.m */; };
 		96556C8C164A4E3F00FE9186 /* logo-iphone-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 96556C8B164A4E3F00FE9186 /* logo-iphone-retina.png */; };
@@ -35,6 +34,7 @@
 		96C5E856164C864D0011843D /* pete-and-rob-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 96C5E855164C864D0011843D /* pete-and-rob-logo.png */; };
 		96C5E85F164D4A3C0011843D /* PARVideosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C5E85D164D4A3C0011843D /* PARVideosViewController.m */; };
 		96C5E860164D4A3C0011843D /* PARVideosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96C5E85E164D4A3C0011843D /* PARVideosViewController.xib */; };
+		96C5E864164D5B510011843D /* PARDataVideos.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C5E863164D5B510011843D /* PARDataVideos.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,8 +51,6 @@
 		9615E5F81649A6DF00C2B37F /* logo-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-iphone.png"; sourceTree = "<group>"; };
 		9615E6001649B86600C2B37F /* PARVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARVideo.h; sourceTree = "<group>"; };
 		9615E6011649B86700C2B37F /* PARVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARVideo.m; sourceTree = "<group>"; };
-		96556C6F1649C33F00FE9186 /* PARXMLParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARXMLParserDelegate.h; sourceTree = "<group>"; };
-		96556C701649C33F00FE9186 /* PARXMLParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARXMLParserDelegate.m; sourceTree = "<group>"; };
 		96556C771649CB4A00FE9186 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		96556C81164A34B600FE9186 /* PARNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARNavigationBar.h; sourceTree = "<group>"; };
 		96556C82164A34B600FE9186 /* PARNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARNavigationBar.m; sourceTree = "<group>"; };
@@ -75,6 +73,8 @@
 		96C5E85C164D4A3C0011843D /* PARVideosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARVideosViewController.h; sourceTree = "<group>"; };
 		96C5E85D164D4A3C0011843D /* PARVideosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARVideosViewController.m; sourceTree = "<group>"; };
 		96C5E85E164D4A3C0011843D /* PARVideosViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PARVideosViewController.xib; sourceTree = "<group>"; };
+		96C5E862164D5B510011843D /* PARDataVideos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARDataVideos.h; sourceTree = "<group>"; };
+		96C5E863164D5B510011843D /* PARDataVideos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARDataVideos.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,14 +128,13 @@
 		9615E5DB1649A58E00C2B37F /* Pete & Rob */ = {
 			isa = PBXGroup;
 			children = (
+				96C5E861164D5B150011843D /* Data */,
 				96C5E846164AA4100011843D /* Controller */,
 				9615E5E41649A58E00C2B37F /* PARAppDelegate.h */,
 				9615E5E51649A58E00C2B37F /* PARAppDelegate.m */,
 				9615E5DC1649A58E00C2B37F /* Supporting Files */,
 				9615E6001649B86600C2B37F /* PARVideo.h */,
 				9615E6011649B86700C2B37F /* PARVideo.m */,
-				96556C6F1649C33F00FE9186 /* PARXMLParserDelegate.h */,
-				96556C701649C33F00FE9186 /* PARXMLParserDelegate.m */,
 				96556C81164A34B600FE9186 /* PARNavigationBar.h */,
 				96556C82164A34B600FE9186 /* PARNavigationBar.m */,
 			);
@@ -181,6 +180,15 @@
 				96C5E85E164D4A3C0011843D /* PARVideosViewController.xib */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		96C5E861164D5B150011843D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				96C5E862164D5B510011843D /* PARDataVideos.h */,
+				96C5E863164D5B510011843D /* PARDataVideos.m */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,10 +273,10 @@
 				9615E5E21649A58E00C2B37F /* main.m in Sources */,
 				9615E5E61649A58E00C2B37F /* PARAppDelegate.m in Sources */,
 				9615E6021649B86700C2B37F /* PARVideo.m in Sources */,
-				96556C711649C33F00FE9186 /* PARXMLParserDelegate.m in Sources */,
 				96556C83164A34B600FE9186 /* PARNavigationBar.m in Sources */,
 				96C5E844164AA33B0011843D /* PARDetailViewController.m in Sources */,
 				96C5E85F164D4A3C0011843D /* PARVideosViewController.m in Sources */,
+				96C5E864164D5B510011843D /* PARDataVideos.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

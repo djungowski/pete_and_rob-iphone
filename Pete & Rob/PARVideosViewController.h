@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PARXMLParserDelegate.h"
+#import "PARDataVideos.h"
 
 @interface PARVideosViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate> {
     int loadingStart;
     NSMutableArray *videos;
     BOOL loading;
     BOOL didLoadCompleteList;
-    PARXMLParserDelegate *parserDelegate;
+    PARDataVideos *videoData;
 }
 @property (strong, nonatomic) IBOutlet UITableViewCell *loadingCell;
 

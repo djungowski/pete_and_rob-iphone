@@ -10,7 +10,6 @@
 #import "PARAppDelegate.h"
 #import "PARVideo.h"
 #import "PARDetailViewController.h"
-#import "PARXMLParserDelegate.h"
 
 @interface PARVideosViewController ()
 
@@ -37,6 +36,9 @@
     didLoadCompleteList = NO;
     videos = [[NSMutableArray alloc] init];
     
+    videoData = [[PARDataVideos alloc] init];
+    [videoData addParsingObserver:self];
+    
     // Pull to refresh
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh..."];
@@ -56,13 +58,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Laden..."];
         [self.refreshControl beginRefreshing];
-        NSString *urlString = [NSString stringWithFormat:@"%@%d", @"http://www.peteandrob.com/rss/videos.php?start=", loadingStart];
-        NSURL *url = [NSURL URLWithString:urlString];
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        
-        parserDelegate = [[PARXMLParserDelegate alloc] init];
-        [parserDelegate addParsingObserver:self];
-        [parserDelegate parse:data];
+        [videoData load:loadingStart];
     });
 }
 
@@ -84,8 +80,8 @@
         return;
     }
     [videos addObjectsFromArray:[parsedVideos object]];
-    loadingStart = parserDelegate.offset;
-    didLoadCompleteList = (parserDelegate.total <= loadingStart);
+    loadingStart = videoData.offset;
+    didLoadCompleteList = (videoData.total <= loadingStart);
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];
     
