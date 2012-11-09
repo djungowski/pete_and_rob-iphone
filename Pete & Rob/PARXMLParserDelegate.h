@@ -15,5 +15,9 @@
 }
 
 @property (strong, nonatomic) NSMutableArray *videos;
+@property int offset;
+@property int total;
+
+- (NSMutableArray *)parse:(NSData *)responseData;
 
 @end

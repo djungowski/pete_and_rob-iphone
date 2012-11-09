@@ -14,4 +14,14 @@
 @synthesize image;
 @synthesize description;
 
+- (UIImage *)getImage
+{
+    if (!self.image) {
+        NSURL *imageURL = [NSURL URLWithString:self.imageString];
+        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+        self.image = [UIImage imageWithData:imageData];
+    }
+    return self.image;
+}
+
 @end

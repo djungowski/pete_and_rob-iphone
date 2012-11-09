@@ -9,10 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @interface PARViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
+    int loadingStart;
     NSMutableArray *videos;
+    BOOL loading;
+    BOOL didLoadCompleteList;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (strong, nonatomic) IBOutlet UITableViewCell *loadingCell;
+
+-(void)load;
 
 @end

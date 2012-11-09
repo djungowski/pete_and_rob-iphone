@@ -39,7 +39,19 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.videoImage.image = video.image;
+    if (!self.video.image) {
+        [self.spinner setHidden:NO];
+        [self.spinner startAnimating];
+        self.videoImage.image = [UIImage imageNamed:@"pete-and-rob-logo.png"];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+            self.videoImage.image = [video getImage];
+            [self.spinner stopAnimating];
+            [self.playButton setHidden:NO];
+            
+        });
+    } else {
+        self.videoImage.image = self.video.image;
+    }
     self.videoDescription.text = video.description;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self              action:@selector(imageTapped:)];

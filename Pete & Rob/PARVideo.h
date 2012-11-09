@@ -14,8 +14,12 @@
 
 @property (strong, nonatomic) NSString *url;
 
+@property (strong, nonatomic) NSString *imageString;
+
 @property (strong, nonatomic) UIImage *image;
 
 @property (strong, nonatomic) NSString *description;
+
+- (UIImage *)getImage;
 
 @end

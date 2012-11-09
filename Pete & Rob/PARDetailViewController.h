@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *videoImage;
 @property (weak, nonatomic) IBOutlet UITextView *videoDescription;
 @property (weak, nonatomic) IBOutlet UIImageView *playButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 - (id)initWithVideo: (PARVideo *)videoInfo;
 

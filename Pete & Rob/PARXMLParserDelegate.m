@@ -62,4 +62,33 @@
     currentProperty = nil;
 }
 
+- (NSMutableArray *)parse:(NSData *)responseData
+{
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
+    
+    NSDictionary *videosInfo = [json objectForKey:@"videos"];
+    
+    NSEnumerator *e = [videosInfo objectEnumerator];
+    id movieObject;
+    
+    while (movieObject = [e nextObject]) {
+        PARVideo *video = [[PARVideo alloc] init];
+        video.title = [movieObject objectForKey:@"title"];
+        video.description = [movieObject objectForKey:@"description"];
+        video.url = [movieObject objectForKey:@"video"];
+        video.imageString = [movieObject objectForKey:@"image"];
+        [self.videos addObject:video];
+    }
+    
+    // Jetzt noch den Offset berechnen
+    NSDictionary *info = [json objectForKey:@"info"];
+    NSString *start = [info objectForKey:@"start"];
+    NSString *limit = [info objectForKey:@"limit"];
+    
+    self.offset = [start intValue] + [limit intValue];
+    self.total = [[info objectForKey:@"total"] intValue];
+    
+    return self.videos;
+}
+
 @end
