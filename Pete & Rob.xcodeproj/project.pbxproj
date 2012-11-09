@@ -35,6 +35,7 @@
 		96C5E85F164D4A3C0011843D /* PARVideosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C5E85D164D4A3C0011843D /* PARVideosViewController.m */; };
 		96C5E860164D4A3C0011843D /* PARVideosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96C5E85E164D4A3C0011843D /* PARVideosViewController.xib */; };
 		96C5E864164D5B510011843D /* PARDataVideos.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C5E863164D5B510011843D /* PARDataVideos.m */; };
+		96C5E868164D60AB0011843D /* PARVideosTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96C5E867164D60AB0011843D /* PARVideosTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,8 @@
 		96C5E85E164D4A3C0011843D /* PARVideosViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PARVideosViewController.xib; sourceTree = "<group>"; };
 		96C5E862164D5B510011843D /* PARDataVideos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARDataVideos.h; sourceTree = "<group>"; };
 		96C5E863164D5B510011843D /* PARDataVideos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARDataVideos.m; sourceTree = "<group>"; };
+		96C5E866164D60AB0011843D /* PARVideosTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARVideosTableViewCell.h; sourceTree = "<group>"; };
+		96C5E867164D60AB0011843D /* PARVideosTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARVideosTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,7 @@
 		9615E5DB1649A58E00C2B37F /* Pete & Rob */ = {
 			isa = PBXGroup;
 			children = (
+				96C5E865164D60910011843D /* TableView */,
 				96C5E861164D5B150011843D /* Data */,
 				96C5E846164AA4100011843D /* Controller */,
 				9615E5E41649A58E00C2B37F /* PARAppDelegate.h */,
@@ -189,6 +193,15 @@
 				96C5E863164D5B510011843D /* PARDataVideos.m */,
 			);
 			name = Data;
+			sourceTree = "<group>";
+		};
+		96C5E865164D60910011843D /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				96C5E866164D60AB0011843D /* PARVideosTableViewCell.h */,
+				96C5E867164D60AB0011843D /* PARVideosTableViewCell.m */,
+			);
+			name = TableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +290,7 @@
 				96C5E844164AA33B0011843D /* PARDetailViewController.m in Sources */,
 				96C5E85F164D4A3C0011843D /* PARVideosViewController.m in Sources */,
 				96C5E864164D5B510011843D /* PARDataVideos.m in Sources */,
+				96C5E868164D60AB0011843D /* PARVideosTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

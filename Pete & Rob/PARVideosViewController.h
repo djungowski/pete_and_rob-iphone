@@ -17,6 +17,7 @@
     PARDataVideos *videoData;
 }
 @property (strong, nonatomic) IBOutlet UITableViewCell *loadingCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *defaultRowCell;
 
 -(void)load;
 

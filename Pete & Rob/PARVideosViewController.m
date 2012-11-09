@@ -10,6 +10,7 @@
 #import "PARAppDelegate.h"
 #import "PARVideo.h"
 #import "PARDetailViewController.h"
+#import "PARVideosTableViewCell.h"
 
 @interface PARVideosViewController ()
 
@@ -31,7 +32,7 @@
     [super viewDidLoad];
     loading = NO;
 	// Do any additional setup after loading the view, typically from a nib.
-    self.title = @"Videos";
+    self.title = @"Adventures";
     loadingStart = 0;
     didLoadCompleteList = NO;
     videos = [[NSMutableArray alloc] init];
@@ -115,6 +116,11 @@
     [delegate.navController pushViewController:controller animated:YES];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 65;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     int videosCount = [videos count];
@@ -126,7 +132,8 @@
             }
         }
         if (indexPath.row < videosCount) {
-            UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+//            UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+            PARVideosTableViewCell *cell = [[PARVideosTableViewCell alloc] init];
             PARVideo *video = [videos objectAtIndex:indexPath.row];
             cell.textLabel.text = video.title;
             
