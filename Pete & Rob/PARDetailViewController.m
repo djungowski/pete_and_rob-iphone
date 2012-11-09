@@ -51,6 +51,8 @@
         });
     } else {
         self.videoImage.image = self.video.image;
+        [self.spinner stopAnimating];
+        [self.playButton setHidden:NO];
     }
     self.videoDescription.text = video.description;
     

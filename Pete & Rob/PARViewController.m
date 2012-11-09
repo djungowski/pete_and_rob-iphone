@@ -34,34 +34,39 @@
 
 - (void)load
 {
-    // Nichts laden, wennn wir bereits am Ende der Liste sind
-    if (didLoadCompleteList) {
+    // Nichts laden, wennn wir bereits am Ende der Liste sind oder wenn gerade geladen wird
+    if (didLoadCompleteList || loading) {
         return;
     }
     loading = YES;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        //        NSURL *url = [NSURL URLWithString:@"http://www.peteandrob.com/rss/podcast.php"];
-        
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         NSString *urlString = [NSString stringWithFormat:@"%@%d", @"http://www.peteandrob.com/rss/videos.php?start=", loadingStart];
         NSURL *url = [NSURL URLWithString:urlString];
-        
         NSData *data = [NSData dataWithContentsOfURL:url];
         
-        PARXMLParserDelegate *parserDelegate = [[PARXMLParserDelegate alloc] init];
-        
-        [videos addObjectsFromArray:[parserDelegate parse:data]];
-        loadingStart = parserDelegate.offset;
-        didLoadCompleteList = (parserDelegate.total <= loadingStart);
-        [self.spinner stopAnimating];
-        [self.tableView reloadData];
-        loading = NO;
+        parserDelegate = [[PARXMLParserDelegate alloc] init];
+        [parserDelegate addParsingObserver:self];
+        [parserDelegate parse:data];
     });
+}
+
+- (void)parsingFinished:(NSNotification *)parsedVideos
+{
+    // Wenn nicht gerade geladen wird, ignorieren, was hier ankommt
+    if (!loading) {
+        return;
+    }
+    [videos addObjectsFromArray:[parsedVideos object]];
+    loadingStart = parserDelegate.offset;
+    didLoadCompleteList = (parserDelegate.total <= loadingStart);
+    [self.tableView reloadData];
+    [self.spinner stopAnimating];
+    loading = NO;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -90,8 +95,8 @@
 {
     int videosCount = [videos count];
     if (videosCount > 0) {    
-        // If scrolled beyond two thirds of the table, load next batch of data.
-        if (indexPath.row >= (videosCount /3 *2)) {
+        // If scrolled beyond 80% of the table, load next batch of data.
+        if (indexPath.row >= (videosCount * 0.8)) {
             if (!loading) {
                 [self load];
             }

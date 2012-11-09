@@ -19,5 +19,7 @@
 @property int total;
 
 - (NSMutableArray *)parse:(NSData *)responseData;
+- (void)parsingFinished:(NSNotification *)parsedVideos;
+- (void)addParsingObserver:(id)observer;
 
 @end

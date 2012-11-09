@@ -16,50 +16,19 @@
 {
     self = [super init];
     self.videos = [[NSMutableArray alloc] init];
+//    [self addParsingObserver:self];
+
     return self;
 }
 
-- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+- (void)addParsingObserver:(id)observer
 {
-    if (!currentProperty) {
-        currentProperty = [[NSMutableString alloc] initWithString:string];
-    } else {
-        [currentProperty appendString:string];
-    }
+    [[NSNotificationCenter defaultCenter] addObserver:observer selector:@selector(parsingFinished:) name:@"parsingFinished" object:nil];
 }
 
-- (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict
+- (void)parsingFinished:(NSNotification *)parsedVideos
 {
-    if ([elementName isEqualToString: @"item"]) {
-        currentVideo = [[PARVideo alloc] init];
-    }
-    else if ([elementName isEqualToString:@"itunes:image"]) {
-        NSString *imageString = [[attributeDict objectForKey:@"href"] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        NSURL *imageURL = [NSURL URLWithString:imageString];
-        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-        currentVideo.image = [UIImage imageWithData:imageData];
-    }
-}
-
-- (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
-{
-    if ([elementName isEqualToString: @"title"]) {
-        currentVideo.title = [currentProperty stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    }
-    
-    else if ([elementName isEqualToString: @"guid"]) {
-        currentVideo.url = [currentProperty stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    }
-    
-    else if ([elementName isEqualToString: @"itunes:summary"]) {
-        currentVideo.description = [currentProperty stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    }
-    
-    else if ([elementName isEqualToString: @"item"] && currentVideo) {
-        [self.videos addObject:currentVideo];
-        currentVideo = nil;
-    }
-    currentProperty = nil;
+    // Implement in your class that observates
 }
 
 - (NSMutableArray *)parse:(NSData *)responseData
@@ -88,6 +57,7 @@
     self.offset = [start intValue] + [limit intValue];
     self.total = [[info objectForKey:@"total"] intValue];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"parsingFinished" object:self.videos];
     return self.videos;
 }
 
