@@ -1,24 +1,31 @@
 //
-//  PARViewController.m
+//  PARVideosViewController.m
 //  Pete & Rob
 //
-//  Created by Dominik Jungowski on 06.11.12.
+//  Created by Dominik Jungowski on 09.11.12.
 //  Copyright (c) 2012 Dominik Jungowski. All rights reserved.
 //
 
-#import "PARViewController.h"
+#import "PARVideosViewController.h"
 #import "PARAppDelegate.h"
 #import "PARVideo.h"
 #import "PARDetailViewController.h"
 #import "PARXMLParserDelegate.h"
 
-@interface PARViewController ()
+@interface PARVideosViewController ()
 
 @end
 
-@implementation PARViewController
+@implementation PARVideosViewController
 
-@synthesize tableView;
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -29,6 +36,13 @@
     loadingStart = 0;
     didLoadCompleteList = NO;
     videos = [[NSMutableArray alloc] init];
+    
+    // Pull to refresh
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh..."];
+    [self.refreshControl addTarget:self action:@selector(refreshView:) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl beginRefreshing];
+    // Daten laden
     [self load];
 }
 
@@ -40,6 +54,8 @@
     }
     loading = YES;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Laden..."];
+        [self.refreshControl beginRefreshing];
         NSString *urlString = [NSString stringWithFormat:@"%@%d", @"http://www.peteandrob.com/rss/videos.php?start=", loadingStart];
         NSURL *url = [NSURL URLWithString:urlString];
         NSData *data = [NSData dataWithContentsOfURL:url];
@@ -48,6 +64,17 @@
         [parserDelegate addParsingObserver:self];
         [parserDelegate parse:data];
     });
+}
+
+-(void)refreshView:(UIRefreshControl *)refresh
+{
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Laden..."];
+    loading = NO;
+    loadingStart = 0;
+    didLoadCompleteList = NO;
+    videos = [[NSMutableArray alloc] init];
+    [self.tableView reloadData];
+    [self load];
 }
 
 - (void)parsingFinished:(NSNotification *)parsedVideos
@@ -60,7 +87,8 @@
     loadingStart = parserDelegate.offset;
     didLoadCompleteList = (parserDelegate.total <= loadingStart);
     [self.tableView reloadData];
-    [self.spinner stopAnimating];
+    [self.refreshControl endRefreshing];
+    
     loading = NO;
 }
 
@@ -94,7 +122,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     int videosCount = [videos count];
-    if (videosCount > 0) {    
+    if (videosCount > 0) {
         // If scrolled beyond 80% of the table, load next batch of data.
         if (indexPath.row >= (videosCount * 0.8)) {
             if (!loading) {
@@ -129,6 +157,14 @@
             return self.loadingCell;
         }
     }
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
 }
 
 @end

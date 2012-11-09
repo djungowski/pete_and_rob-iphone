@@ -7,7 +7,7 @@
 //
 
 #import "PARAppDelegate.h"
-#import "PARViewController.h"
+#import "PARVideosViewController.h"
 #import "PARVideo.h"
 #import "PARXMLParserDelegate.h"
 #import "PARNavigationBar.h"
@@ -20,7 +20,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[PARViewController alloc] initWithNibName:@"PARViewController" bundle:nil];
+    self.viewController = [[PARVideosViewController alloc] initWithNibName:@"PARVideosViewController" bundle:nil];
     
     self.navController = [[UINavigationController alloc] initWithNavigationBarClass:[PARNavigationBar class] toolbarClass:nil];
     [self.navController pushViewController:self.viewController animated:YES];

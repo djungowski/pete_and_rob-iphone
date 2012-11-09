@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "PARVideo.h"
 
-@class PARViewController;
+@class PARVideosViewController;
 
 @interface PARAppDelegate : UIResponder <UIApplicationDelegate, NSXMLParserDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) PARViewController *viewController;
+@property (strong, nonatomic) PARVideosViewController *viewController;
 
 @property (strong, nonatomic) NSMutableArray *videos;
 
