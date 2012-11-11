@@ -46,6 +46,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    self.title = _video.title;
     self.videoDetailTextView.text = _video.detail;
     
     __weak PARVideoDetailViewController* weakSelf = self;
