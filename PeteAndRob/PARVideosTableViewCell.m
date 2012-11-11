@@ -51,7 +51,10 @@
             if(![weakSelf.textLabel.text isEqualToString:video.title]){
                 return;
             }
-            
+            if([self isLowPerformanceDevice]){
+                weakSelf.imageView.image = video.image;
+                return;
+            }
             [UIView animateWithDuration:0.3 animations:^{
                 weakSelf.imageView.alpha = 0;
             } completion:^(BOOL finished) {

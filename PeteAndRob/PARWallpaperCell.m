@@ -46,11 +46,14 @@
             if(![weakSelf.titleLabel.text isEqualToString:wallpaper.title]){
                 return;
             }
-            
+            weakSelf.imageView.contentMode = UIViewContentModeScaleAspectFill;
+            if([self isLowPerformanceDevice]){
+                weakSelf.imageView.image = wallpaper.image;
+                return;
+            }
             [UIView animateWithDuration:0.3 animations:^{
                 weakSelf.imageView.alpha = 0;
             } completion:^(BOOL finished) {
-                weakSelf.imageView.contentMode = UIViewContentModeScaleAspectFill;
                 weakSelf.imageView.image = wallpaper.image;
                 [UIView animateWithDuration:0.3 animations:^{
                     weakSelf.imageView.alpha = 1;

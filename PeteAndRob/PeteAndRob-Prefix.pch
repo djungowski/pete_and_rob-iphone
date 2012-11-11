@@ -17,3 +17,4 @@
 
 #import "Defines.h"
 #import "Blocks.h"
+#import "NSObject+Hardware.h"

@@ -18,6 +18,7 @@
 		9C2ECBFF164FD29000F663FC /* PARWallpapersResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2ECBFD164FD29000F663FC /* PARWallpapersResponse.m */; };
 		9C2ECC02164FD56700F663FC /* PARWallpaperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2ECC01164FD56700F663FC /* PARWallpaperCell.m */; };
 		9C2ECC03164FD56700F663FC /* PARWallpaperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2ECC01164FD56700F663FC /* PARWallpaperCell.m */; };
+		9C2ECC1E1650168100F663FC /* NSObject+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2ECC1D1650168100F663FC /* NSObject+Hardware.m */; };
 		9C56B5A9164EA05B009724BE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C56B5A8164EA05B009724BE /* UIKit.framework */; };
 		9C56B5AB164EA05B009724BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C56B5AA164EA05B009724BE /* Foundation.framework */; };
 		9C56B5AD164EA05B009724BE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C56B5AC164EA05B009724BE /* CoreGraphics.framework */; };
@@ -102,6 +103,8 @@
 		9C2ECBFD164FD29000F663FC /* PARWallpapersResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARWallpapersResponse.m; sourceTree = "<group>"; };
 		9C2ECC00164FD56700F663FC /* PARWallpaperCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARWallpaperCell.h; sourceTree = "<group>"; };
 		9C2ECC01164FD56700F663FC /* PARWallpaperCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARWallpaperCell.m; sourceTree = "<group>"; };
+		9C2ECC1C1650168100F663FC /* NSObject+Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Hardware.h"; sourceTree = "<group>"; };
+		9C2ECC1D1650168100F663FC /* NSObject+Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Hardware.m"; sourceTree = "<group>"; };
 		9C56B5A4164EA05B009724BE /* PeteAndRob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeteAndRob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C56B5A8164EA05B009724BE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9C56B5AA164EA05B009724BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -360,6 +363,8 @@
 		9C56B626164EAB6B009724BE /* categories */ = {
 			isa = PBXGroup;
 			children = (
+				9C2ECC1C1650168100F663FC /* NSObject+Hardware.h */,
+				9C2ECC1D1650168100F663FC /* NSObject+Hardware.m */,
 				9C56B622164EAB67009724BE /* NSObject+JsonMappable.h */,
 				9C56B623164EAB68009724BE /* NSObject+JsonMappable.m */,
 			);
@@ -518,6 +523,7 @@
 				9C2ECBFA164FD14F00F663FC /* PARWallpaper.m in Sources */,
 				9C2ECBFE164FD29000F663FC /* PARWallpapersResponse.m in Sources */,
 				9C2ECC02164FD56700F663FC /* PARWallpaperCell.m in Sources */,
+				9C2ECC1E1650168100F663FC /* NSObject+Hardware.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
