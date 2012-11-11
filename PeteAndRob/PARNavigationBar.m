@@ -19,6 +19,8 @@
         UIImage *backgroundLandscape = [UIImage imageNamed:@"navigation-bar-landscape.png"];
         [self setBackgroundImage:background forBarMetrics:UIBarMetricsDefault];
         [self setBackgroundImage:backgroundLandscape forBarMetrics:UIBarMetricsLandscapePhone];
+        
+        self.titleTextAttributes = @{ UITextAttributeFont: FONT_BOLD(FONTSIZE_DEFAULT) };
     }
     return self;
 }

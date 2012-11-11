@@ -16,7 +16,7 @@
     _tabBarController = (UITabBarController *)self.window.rootViewController;
 
     [[UIBarButtonItem appearanceWhenContainedIn:[PARNavigationBar class], nil] setTintColor:UICOLOR_TINT];
-    
+
     return YES;
 }
 							

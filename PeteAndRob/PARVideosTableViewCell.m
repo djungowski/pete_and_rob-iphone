@@ -11,13 +11,25 @@
 
 @implementation PARVideosTableViewCell
 
-- (id)init
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super init];
+    self = [super initWithCoder:aDecoder];
     if (self) {
 
     }
     return self;
+}
+
+- (void)awakeFromNib
+{
+    self.imageView.layer.masksToBounds = YES;
+    self.imageView.layer.cornerRadius = 5;
+    self.imageView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.imageView.layer.borderWidth = 1.5;
+    
+    self.textLabel.font = FONT_DEFAULT(FONTSIZE_DEFAULT);
+    self.textLabel.numberOfLines = 2;
+    self.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
 }
 
 - (void) layoutSubviews
@@ -29,14 +41,7 @@
 - (void)setVideo:(PARVideo*)video
 {
     self.textLabel.text = video.title;
-    self.textLabel.numberOfLines = 2;
-    self.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.imageView.image = video.image;
-    
-    self.imageView.layer.masksToBounds = YES;
-    self.imageView.layer.cornerRadius = 5;
-    self.imageView.layer.borderColor = [UIColor grayColor].CGColor;
-    self.imageView.layer.borderWidth = 1.5;
     
     if (!self.imageView.image) {
         self.imageView.image = [UIImage imageNamed:@"pete-and-rob-logo.png"];

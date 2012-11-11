@@ -25,6 +25,13 @@ blue:(float)b/255.0 alpha:1.0]
 
 #define DURATION_URL_REQUEST_TIMEOUT 20
 
+// UIFonts
+#define FONT_DEFAULT(s) [UIFont fontWithName:@"Futura-CondensedMedium" size:s]
+#define FONT_BOLD(s)    [UIFont fontWithName:@"Futura-CondensedExtraBold" size:s]
+// font sizes
+#define FONTSIZE_SMALL   17
+#define FONTSIZE_DEFAULT 21
+
 #define NUMBER_RSS_ITEMS 10
 
 #define UICOLOR_TINT [UIColor colorWithRed:0.675 green:0.757 blue:0.694 alpha:1]

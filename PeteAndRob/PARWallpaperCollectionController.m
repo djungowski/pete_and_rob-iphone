@@ -45,6 +45,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self refreshView];
+    [[self collectionView] flashScrollIndicators];
 }
 
 - (void)refreshView

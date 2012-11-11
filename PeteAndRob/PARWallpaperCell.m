@@ -11,35 +11,31 @@
 
 @implementation PARWallpaperCell
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Initialization code
+
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void)awakeFromNib
 {
-    // Drawing code
-}
- */
-
-- (void)setWallpaper:(PARWallpaper*)wallpaper
-{
-    self.titleLabel.text = wallpaper.title;
-    self.titleLabel.numberOfLines = 2;
-    self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    self.imageView.image = wallpaper.image;
-    
     self.imageView.layer.masksToBounds = YES;
     self.imageView.layer.cornerRadius = 5;
     self.imageView.layer.borderColor = [UIColor grayColor].CGColor;
     self.imageView.layer.borderWidth = 1.5;
+    
+    self.titleLabel.font = FONT_DEFAULT(FONTSIZE_DEFAULT);
+    self.titleLabel.numberOfLines = 2;
+    self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+}
+
+- (void)setWallpaper:(PARWallpaper*)wallpaper
+{
+    self.titleLabel.text = wallpaper.title;
+    self.imageView.image = wallpaper.image;
     
     if (!self.imageView.image) {
         self.imageView.image = [UIImage imageNamed:@"pete-and-rob-logo.png"];
@@ -61,4 +57,5 @@
         }];
     }
 }
+
 @end
