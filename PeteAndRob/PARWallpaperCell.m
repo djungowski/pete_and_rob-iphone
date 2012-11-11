@@ -38,6 +38,7 @@
     self.imageView.image = wallpaper.image;
     
     if (!self.imageView.image) {
+        self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         self.imageView.image = [UIImage imageNamed:@"pete-and-rob-logo.png"];
         __weak PARWallpaperCell *weakSelf = self;
         [wallpaper onLowImageLoaded:^(UIImage *image) {
@@ -49,6 +50,7 @@
             [UIView animateWithDuration:0.3 animations:^{
                 weakSelf.imageView.alpha = 0;
             } completion:^(BOOL finished) {
+                weakSelf.imageView.contentMode = UIViewContentModeScaleAspectFill;
                 weakSelf.imageView.image = wallpaper.image;
                 [UIView animateWithDuration:0.3 animations:^{
                     weakSelf.imageView.alpha = 1;
