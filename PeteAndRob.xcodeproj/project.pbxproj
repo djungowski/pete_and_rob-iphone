@@ -19,6 +19,8 @@
 		9C2ECC02164FD56700F663FC /* PARWallpaperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2ECC01164FD56700F663FC /* PARWallpaperCell.m */; };
 		9C2ECC03164FD56700F663FC /* PARWallpaperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2ECC01164FD56700F663FC /* PARWallpaperCell.m */; };
 		9C2ECC1E1650168100F663FC /* NSObject+Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2ECC1D1650168100F663FC /* NSObject+Hardware.m */; };
+		9C2ECC3516519C0F00F663FC /* PARWallpaperDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2ECC3416519C0F00F663FC /* PARWallpaperDetailController.m */; };
+		9C2ECC3916519C3B00F663FC /* PARWallpaperWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2ECC3816519C3B00F663FC /* PARWallpaperWebViewController.m */; };
 		9C56B5A9164EA05B009724BE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C56B5A8164EA05B009724BE /* UIKit.framework */; };
 		9C56B5AB164EA05B009724BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C56B5AA164EA05B009724BE /* Foundation.framework */; };
 		9C56B5AD164EA05B009724BE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C56B5AC164EA05B009724BE /* CoreGraphics.framework */; };
@@ -105,6 +107,10 @@
 		9C2ECC01164FD56700F663FC /* PARWallpaperCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARWallpaperCell.m; sourceTree = "<group>"; };
 		9C2ECC1C1650168100F663FC /* NSObject+Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Hardware.h"; sourceTree = "<group>"; };
 		9C2ECC1D1650168100F663FC /* NSObject+Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Hardware.m"; sourceTree = "<group>"; };
+		9C2ECC3316519C0F00F663FC /* PARWallpaperDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARWallpaperDetailController.h; sourceTree = "<group>"; };
+		9C2ECC3416519C0F00F663FC /* PARWallpaperDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARWallpaperDetailController.m; sourceTree = "<group>"; };
+		9C2ECC3716519C3B00F663FC /* PARWallpaperWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARWallpaperWebViewController.h; sourceTree = "<group>"; };
+		9C2ECC3816519C3B00F663FC /* PARWallpaperWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARWallpaperWebViewController.m; sourceTree = "<group>"; };
 		9C56B5A4164EA05B009724BE /* PeteAndRob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeteAndRob.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C56B5A8164EA05B009724BE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9C56B5AA164EA05B009724BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -303,6 +309,10 @@
 				9C56B606164EA4F9009724BE /* PARVideoDetailViewController.m */,
 				9C2ECBF4164FD0FE00F663FC /* PARWallpaperCollectionController.h */,
 				9C2ECBF5164FD0FE00F663FC /* PARWallpaperCollectionController.m */,
+				9C2ECC3316519C0F00F663FC /* PARWallpaperDetailController.h */,
+				9C2ECC3416519C0F00F663FC /* PARWallpaperDetailController.m */,
+				9C2ECC3716519C3B00F663FC /* PARWallpaperWebViewController.h */,
+				9C2ECC3816519C3B00F663FC /* PARWallpaperWebViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -524,6 +534,8 @@
 				9C2ECBFE164FD29000F663FC /* PARWallpapersResponse.m in Sources */,
 				9C2ECC02164FD56700F663FC /* PARWallpaperCell.m in Sources */,
 				9C2ECC1E1650168100F663FC /* NSObject+Hardware.m in Sources */,
+				9C2ECC3516519C0F00F663FC /* PARWallpaperDetailController.m in Sources */,
+				9C2ECC3916519C3B00F663FC /* PARWallpaperWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -98,6 +98,19 @@
     }
 }
 
+#pragma mark segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    id wallpaper = [_wallpapers objectAtIndex:[[[self collectionView] indexPathsForSelectedItems][0] row]];
+    [[segue destinationViewController] setWallpaper:wallpaper];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"segue_wallpaper" sender:self];
+}
+
 #pragma mark UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
