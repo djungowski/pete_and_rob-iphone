@@ -20,10 +20,10 @@
 @end
 
 static NSString* CELL_VIDEOS  = @"cell_videos";
+static NSString* CELL_LOADING  = @"cell_loading";
 
 @implementation PARVideosViewController{
     __block BOOL didLoadCompleteList;
-    __block BOOL isRequestingVideos;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -40,6 +40,12 @@ static NSString* CELL_VIDEOS  = @"cell_videos";
     [super viewDidLoad];
     self.title = @"Adventures";
     _videos = @[];
+    
+    // Pull to refresh
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh..."];
+    [self.refreshControl addTarget:self action:@selector(refreshAndClear) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl beginRefreshing];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,41 +55,63 @@ static NSString* CELL_VIDEOS  = @"cell_videos";
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self refreshView];
+    [self refreshAndAdd];
     [[self tableView] deselectRowAtIndexPath:[[self tableView] indexPathForSelectedRow] animated:YES];
 }
 
 #pragma mark private
 
-- (void)refreshView
+- (void)refreshAndClear
+{
+    [self refreshVideos:0];
+}
+
+- (void)refreshAndAdd
+{
+    [self refreshVideos:[_videos count]];    
+}
+
+- (void)refreshVideos:(int)startingIndex
 {
     [self.refreshControl endRefreshing];
-    if(isRequestingVideos) return;
-    
-    if(!didLoadCompleteList){
-        isRequestingVideos = YES;
+    BOOL startAtIndexZero = startingIndex == 0;
+    if(!didLoadCompleteList || startAtIndexZero){
         __weak id weakSelf = self;
-        __block int count = [_videos count];
-        __block NSMutableArray *videosAfterUpdate = [_videos mutableCopy];
+        __block int count = startingIndex;
+        __block NSMutableArray *videosAfterUpdate = startAtIndexZero ? [@[] mutableCopy] : [_videos mutableCopy];
+        NSString *firstVideoTitle = [_videos count] > 0 ? [_videos[0] title] : nil;
+        //
         [[PARWebServiceManager sharedInstance] videosStartingAtIndex:count completion:^(PARVideosResponse *response) {
-            NSArray* videosToBeAdded = response.videos;
-            if([videosToBeAdded count] < 1){
+            didLoadCompleteList = [response.videos count] < NUMBER_RSS_ITEMS;
+            // 1. no response 
+            if([response.videos count] < 1){
+                [[weakSelf tableView] deleteSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationTop];
                 return;
             }
-            if([videosToBeAdded count] < NUMBER_RSS_ITEMS){
-                didLoadCompleteList = YES;
+            // 2. no new videos after pull
+            if([firstVideoTitle isEqualToString:[response.videos[0] title]]){
+                return;
             }
-            
-            // update videos 
-            [videosAfterUpdate addObjectsFromArray:videosToBeAdded];
+            [videosAfterUpdate addObjectsFromArray:response.videos];
             [weakSelf setVideos:videosAfterUpdate];
             
+            // 3. reload after startAtIndexZero
+            if(startAtIndexZero){
+                [[weakSelf tableView] reloadData];
+                return;
+            }
+            
+            // 4. add new videos
             __block NSMutableArray* paths = [@[] mutableCopy];
-            [videosToBeAdded enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            [response.videos enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                 [paths addObject:[NSIndexPath indexPathForRow:(count + idx) inSection:0]];
             }];
+            [[weakSelf tableView] beginUpdates];
+            if(didLoadCompleteList){
+                [[weakSelf tableView] deleteSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationTop];
+            }
             [[weakSelf tableView] insertRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationFade];
-            isRequestingVideos = NO;
+            [[weakSelf tableView] endUpdates];
         }];
     }
 }
@@ -98,9 +126,19 @@ static NSString* CELL_VIDEOS  = @"cell_videos";
 
 #pragma mark UITableViewDataSource
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return didLoadCompleteList ? 1 : 2;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_videos count];
+    switch (section) {
+        case 0:
+            return [_videos count];
+        default:
+            return 1;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -110,15 +148,24 @@ static NSString* CELL_VIDEOS  = @"cell_videos";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CELL_VIDEOS];
-    [(PARVideosTableViewCell*)cell setVideo:_videos[indexPath.row]];
-    return cell;
+    switch (indexPath.section) {
+        case 0:{
+            UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CELL_VIDEOS];
+            [(PARVideosTableViewCell*)cell setVideo:_videos[indexPath.row]];
+            return cell;
+        }
+            
+        default:{
+            UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CELL_LOADING];
+            return cell;
+        }
+    }
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(!didLoadCompleteList && indexPath.row + 1 == [_videos count]){
-      [self refreshView];
+    if(!didLoadCompleteList && indexPath.section == 1){
+      [self refreshAndAdd];
     }
 }
 

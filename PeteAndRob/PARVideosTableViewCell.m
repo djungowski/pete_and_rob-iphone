@@ -60,7 +60,6 @@
             [UIView animateWithDuration:0.3 animations:^{
                 weakSelf.imageView.alpha = 1;
             }];
-            
         }];
     }
 }

@@ -10,7 +10,10 @@
 #import "PARVideosResponse.h"
 #import "PARWallpapersResponse.h"
 
-@implementation PARWebServiceManager
+@implementation PARWebServiceManager{
+    __block BOOL isRequestingVideos;
+    __block BOOL isRequestingWallpapers;
+}
 
 + (id)sharedInstance
 {
@@ -41,6 +44,9 @@
 
 - (void)videosStartingAtIndex:(int)start completion:(PARVideosResponseBlock)completion
 {
+    if(isRequestingVideos) return;
+    isRequestingVideos = YES;
+    
     IdBlock callback = ^(id json){
         PARVideosResponse* response = nil;
         if(json){
@@ -48,18 +54,21 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             completion(response);
+            isRequestingVideos = NO;
         });
     };
     int limit = NUMBER_RSS_ITEMS;
     NSString *urlString = [NSString stringWithFormat:@"%@?start=%d&limit=%d", URL_VIDEOS, start, limit];
     NSURL *url = [NSURL URLWithString:urlString];
-    
     [self getJSONFromURL:url callback:callback];
 }
 
 
 - (void)wallpapersStartingAtIndex:(int)start completion:(PARWallpapersResponseBlock)completion
 {
+    if(isRequestingWallpapers) return;
+    isRequestingWallpapers = YES;
+    
     IdBlock callback = ^(id json){
         PARWallpapersResponse* response = nil;
         if(json){
@@ -67,6 +76,7 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             completion(response);
+            isRequestingWallpapers = NO;
         });
     };
     int limit = NUMBER_RSS_ITEMS;

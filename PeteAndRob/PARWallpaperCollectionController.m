@@ -18,7 +18,6 @@
 
 @implementation PARWallpaperCollectionController{
     __block BOOL didLoadCompleteList;
-    __block BOOL isRequestingWallpapers;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -44,42 +43,62 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self refreshView];
+    [self refreshAndClear];
     [[self collectionView] flashScrollIndicators];
 }
 
-- (void)refreshView
+#pragma mark private
+
+- (void)refreshAndClear
 {
-    if(isRequestingWallpapers) return;
-    
-    if(!didLoadCompleteList){
-        isRequestingWallpapers = YES;
+    [self refresh:0];
+}
+
+- (void)refreshAndAdd
+{
+    [self refresh:[_wallpapers count]];
+}
+
+- (void)refresh:(int)startingIndex
+{
+    BOOL startAtIndexZero = startingIndex == 0;
+    if(!didLoadCompleteList || startAtIndexZero){
         __weak id weakSelf = self;
-        __block int count = [_wallpapers count];
-        __block NSMutableArray *videosAfterUpdate = [_wallpapers mutableCopy];
+        __block int count = startingIndex;
+        __block NSMutableArray *videosAfterUpdate = startAtIndexZero ? [@[] mutableCopy] : [_wallpapers mutableCopy];
+        NSString *firstVideoTitle = [_wallpapers count] > 0 ? [_wallpapers[0] title] : nil;
+        //
         [[PARWebServiceManager sharedInstance] wallpapersStartingAtIndex:count completion:^(PARWallpapersResponse *response) {
-            NSArray* wallpapersToBeAdded = response.wallpapers;
-            if([wallpapersToBeAdded count] < 1){
+            didLoadCompleteList = [response.wallpapers count] < NUMBER_RSS_ITEMS;
+            // 1. no response
+            if([response.wallpapers count] < 1){
+                [[weakSelf tableView] deleteSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationTop];
                 return;
             }
-            if([wallpapersToBeAdded count] < NUMBER_RSS_ITEMS){
-                didLoadCompleteList = YES;
+            // 2. no new videos after pull
+            if([firstVideoTitle isEqualToString:[response.wallpapers[0] title]]){
+                return;
             }
-            
-            // update wallapers
-            [videosAfterUpdate addObjectsFromArray:wallpapersToBeAdded];
+            [videosAfterUpdate addObjectsFromArray:response.wallpapers];
             [weakSelf setWallpapers:videosAfterUpdate];
             
+            // 3. reload after startAtIndexZero
+            if(startAtIndexZero){
+                [[weakSelf collectionView] reloadData];
+                return;
+            }
+            
+            // 4. add new videos
             __block NSMutableArray* paths = [@[] mutableCopy];
-            [wallpapersToBeAdded enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            [response.wallpapers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                 [paths addObject:[NSIndexPath indexPathForRow:(count + idx) inSection:0]];
             }];
-            
             [[weakSelf collectionView] insertItemsAtIndexPaths:paths];
-            isRequestingWallpapers = NO;
         }];
     }
 }
+
+#pragma mark UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
