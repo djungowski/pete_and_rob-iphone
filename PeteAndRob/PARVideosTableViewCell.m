@@ -25,7 +25,6 @@
     self.imageView.layer.masksToBounds = YES;
     self.imageView.layer.cornerRadius = 5;
     self.imageView.layer.borderColor = [UIColor grayColor].CGColor;
-    self.imageView.layer.borderWidth = 1.5;
     
     self.textLabel.font = FONT_DEFAULT(FONTSIZE_DEFAULT);
     self.textLabel.numberOfLines = 2;
@@ -44,6 +43,7 @@
     self.imageView.image = video.image;
     
     if (!self.imageView.image) {
+        self.imageView.layer.borderWidth = 0;
         self.imageView.image = [UIImage imageNamed:@"pete-and-rob-logo.png"];
         __weak PARVideosTableViewCell *weakSelf = self;
         [video onImageLoaded:^(UIImage *image) {
@@ -51,18 +51,16 @@
             if(![weakSelf.textLabel.text isEqualToString:video.title]){
                 return;
             }
+            weakSelf.imageView.layer.borderWidth = 1.5;
             if([self isLowPerformanceDevice]){
                 weakSelf.imageView.image = video.image;
                 return;
             }
+            weakSelf.imageView.image = video.image;
             [UIView animateWithDuration:0.3 animations:^{
-                weakSelf.imageView.alpha = 0;
-            } completion:^(BOOL finished) {
-                weakSelf.imageView.image = video.image;
-                 [UIView animateWithDuration:0.3 animations:^{
-                     weakSelf.imageView.alpha = 1;
-                 }];
+                weakSelf.imageView.alpha = 1;
             }];
+            
         }];
     }
 }

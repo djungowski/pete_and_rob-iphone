@@ -25,7 +25,6 @@
     self.imageView.layer.masksToBounds = YES;
     self.imageView.layer.cornerRadius = 5;
     self.imageView.layer.borderColor = [UIColor grayColor].CGColor;
-    self.imageView.layer.borderWidth = 1.5;
     
     self.titleLabel.font = FONT_DEFAULT(FONTSIZE_DEFAULT);
     self.titleLabel.numberOfLines = 2;
@@ -38,6 +37,7 @@
     self.imageView.image = wallpaper.image;
     
     if (!self.imageView.image) {
+        self.imageView.layer.borderWidth = 0;
         self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         self.imageView.image = [UIImage imageNamed:@"pete-and-rob-logo.png"];
         __weak PARWallpaperCell *weakSelf = self;
@@ -47,17 +47,15 @@
                 return;
             }
             weakSelf.imageView.contentMode = UIViewContentModeScaleAspectFill;
+            weakSelf.imageView.layer.borderWidth = 1.5;
             if([self isLowPerformanceDevice]){
                 weakSelf.imageView.image = wallpaper.image;
                 return;
-            }
+            } 
+            weakSelf.imageView.alpha = 0;
+            weakSelf.imageView.image = wallpaper.image;
             [UIView animateWithDuration:0.3 animations:^{
-                weakSelf.imageView.alpha = 0;
-            } completion:^(BOOL finished) {
-                weakSelf.imageView.image = wallpaper.image;
-                [UIView animateWithDuration:0.3 animations:^{
-                    weakSelf.imageView.alpha = 1;
-                }];
+                weakSelf.imageView.alpha = 1;
             }];
         }];
     }
