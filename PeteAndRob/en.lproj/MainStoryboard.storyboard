@@ -4,11 +4,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - Adventures-->
         <scene sceneID="Pbs-Za-n8Q">
             <objects>
                 <navigationController definesPresentationContext="YES" id="N5G-7I-3BA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="featured" id="vXu-kb-26M"/>
+                    <tabBarItem key="tabBarItem" title="Adventures" image="clapboard.png" id="vXu-kb-26M"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CiM-x6-VdU" customClass="PARNavigationBar">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -146,17 +146,119 @@
                     <connections>
                         <segue destination="N5G-7I-3BA" kind="relationship" relationship="viewControllers" id="hC7-yq-A92"/>
                         <segue destination="3Uh-cB-qyJ" kind="relationship" relationship="viewControllers" id="EY2-lu-VZD"/>
+                        <segue destination="Mpu-eL-ALr" kind="relationship" relationship="viewControllers" id="sc2-Tg-l5E"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="132" y="180"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--View Controller - About-->
+        <scene sceneID="fFW-Q2-GYn">
+            <objects>
+                <viewController id="Mpu-eL-ALr" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hnx-nz-oN9">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j2O-gp-lJN">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="www.PeteandRob.com The Adventures Of Pete &amp; Rob">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> Pete &amp; Rob c/o Pete Roessler Isartalstr. 16 80469 Munich Germany E-Mail contact@peteandrob.com Phone +491781943210
+
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Privacy Policy">
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="Helvetica-Bold"/>
+                                            <font key="NSOriginalFont" size="18" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+Pete &amp; Rob are committed to the security and privacy of your information, and will not reveal or commercialize any such information without previous authorization from you.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cgo
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Disclaimer
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="Helvetica-Bold"/>
+                                            <font key="NSOriginalFont" size="18" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">www.PeteAndRob.com is a fun web project. The website has its origin in a nostalgic approach to child-hood. The content shall not be modified and then represented as original content.   This is NOT an official website and is not endorsed by PLAYMOBIL® (Geobra Brandstätter GmbH &amp; Co. KG). No copyright infringement is intended. This website is not owned, operated, sponsored or authorized by Geobra Brandstätter GmbH &amp; Co. KG. Geobra Brandstätter GmbH &amp; Co. KG does not endorse, and is not responsible for this website or any information or links contained herein; makes no express or implied warranties with regard to any information or links on this web site or any other linked web sites; and is not bound by any statements made on this web site, or by those who own or operate this web site. The trademark PLAYMOBIL® and the copyrighted images of PLAYMOBIL® products are the sole and exclusive property of Geobra Brandstätter GmbH &amp; Co. KG, which reserves all rights therein.   The short films may contain violence and the consumption of alcohol or other unhealthy substances. Playmobil® does not advocate the use of drugs or violence, in any shape or form.  www.PeteAndRob.com may provide links to other Internet sites for the convenience of users. www.PeteAndRob.com is not responsible for the availability or content of these external sites, nor does www.PeteAndRob.com endorse, warrant, or guarantee the products, services, or information described or offered at these other Internet sites.
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="j2O-gp-lJN" firstAttribute="leading" secondItem="Hnx-nz-oN9" secondAttribute="leading" type="default" id="P3D-HQ-Mf1"/>
+                            <constraint firstItem="j2O-gp-lJN" firstAttribute="trailing" secondItem="Hnx-nz-oN9" secondAttribute="trailing" type="default" id="VfU-jN-kRb"/>
+                            <constraint firstItem="j2O-gp-lJN" firstAttribute="bottom" secondItem="Hnx-nz-oN9" secondAttribute="bottom" type="default" id="gBu-4J-2t3"/>
+                            <constraint firstItem="j2O-gp-lJN" firstAttribute="top" secondItem="Hnx-nz-oN9" secondAttribute="top" type="default" id="t02-fA-Lee"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="About" image="globe.png" id="VV3-G4-kHr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QlH-h3-7ij" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="147" y="845"/>
+        </scene>
+        <!--Navigation Controller - Wallpaper-->
         <scene sceneID="Fwo-Lo-rDf">
             <objects>
                 <navigationController definesPresentationContext="YES" id="3Uh-cB-qyJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="downloads" id="Qe9-Fd-HAu"/>
+                    <tabBarItem key="tabBarItem" title="Wallpaper" image="camera.png" id="Qe9-Fd-HAu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q27-R5-2CO" customClass="PARNavigationBar">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -168,7 +270,7 @@
             </objects>
             <point key="canvasLocation" x="653" y="553"/>
         </scene>
-        <!--Wallpaper Collection Controller-->
+        <!--Wallpaper Collection Controller - Wallpaper-->
         <scene sceneID="ckk-au-rYh">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="T85-i5-WIV" customClass="PARWallpaperCollectionController" sceneMemberID="viewController">
@@ -228,7 +330,7 @@
                             <outlet property="delegate" destination="T85-i5-WIV" id="O5Q-Sz-As3"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" systemItem="downloads" id="eTf-iU-yBk"/>
+                    <tabBarItem key="tabBarItem" title="Wallpaper" image="camera.png" id="eTf-iU-yBk"/>
                     <navigationItem key="navigationItem" id="uWJ-0O-gYX"/>
                     <connections>
                         <segue destination="Qoe-kh-zF9" kind="push" identifier="segue_wallpaper" id="epV-8h-juA"/>
@@ -353,6 +455,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera.png" width="26" height="26"/>
+        <image name="clapboard.png" width="26" height="26"/>
+        <image name="globe.png" width="26" height="26"/>
         <image name="play-highlighted@2x.png" width="52" height="52"/>
         <image name="play@2x.png" width="52" height="52"/>
     </resources>
@@ -414,9 +519,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
