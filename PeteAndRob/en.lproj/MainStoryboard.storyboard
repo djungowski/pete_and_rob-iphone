@@ -83,11 +83,6 @@
                                     <constraint firstAttribute="height" constant="113" type="user" id="fMy-S0-zvl"/>
                                 </constraints>
                             </imageView>
-                            <imageView hidden="YES" contentMode="center" image="play@2x.png" highlightedImage="play-highlighted@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="nw0-iU-6IU">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" type="user" id="jDj-Bu-g6H"/>
-                                </constraints>
-                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9D-vo-9kK">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -101,31 +96,42 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="DkV-Sw-uqe">
                                 <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ot8-6v-8QP">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playButtonTouched:" destination="akz-so-DyB" eventType="touchUpInside" id="Wqz-m2-LbT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="k9D-vo-9kK" firstAttribute="leading" secondItem="HMx-PO-Cc6" secondAttribute="leading" constant="20" type="user" id="5em-0E-BXm"/>
+                            <constraint firstItem="e50-dN-88c" firstAttribute="leading" secondItem="ot8-6v-8QP" secondAttribute="leading" type="default" id="BrL-1z-E2h"/>
                             <constraint firstAttribute="bottom" secondItem="k9D-vo-9kK" secondAttribute="bottom" constant="20" symbolic="YES" type="user" id="BrX-OF-DNT"/>
                             <constraint firstAttribute="centerX" secondItem="e50-dN-88c" secondAttribute="centerX" type="user" id="CFO-HN-moz"/>
-                            <constraint firstItem="nw0-iU-6IU" firstAttribute="top" secondItem="HMx-PO-Cc6" secondAttribute="top" constant="20" type="user" id="Fvv-Ux-fo5"/>
                             <constraint firstAttribute="bottom" secondItem="k9D-vo-9kK" secondAttribute="bottom" constant="20" type="user" id="GuG-Me-UhS"/>
                             <constraint firstItem="e50-dN-88c" firstAttribute="top" secondItem="HMx-PO-Cc6" secondAttribute="top" constant="20" type="user" id="Imz-xw-RZw"/>
+                            <constraint firstItem="ot8-6v-8QP" firstAttribute="top" secondItem="HMx-PO-Cc6" secondAttribute="top" constant="20" symbolic="YES" type="default" id="LbK-YW-tPU"/>
+                            <constraint firstItem="e50-dN-88c" firstAttribute="bottom" secondItem="ot8-6v-8QP" secondAttribute="bottom" type="default" id="NZp-Ja-WHd"/>
                             <constraint firstItem="DkV-Sw-uqe" firstAttribute="top" secondItem="HMx-PO-Cc6" secondAttribute="top" constant="110" type="user" id="NuX-tv-mQN"/>
-                            <constraint firstItem="e50-dN-88c" firstAttribute="trailing" secondItem="nw0-iU-6IU" secondAttribute="trailing" type="user" id="O0I-qV-RGA"/>
-                            <constraint firstAttribute="centerX" secondItem="nw0-iU-6IU" secondAttribute="centerX" type="user" id="OCQ-5u-UZ6"/>
                             <constraint firstItem="e50-dN-88c" firstAttribute="top" secondItem="HMx-PO-Cc6" secondAttribute="top" constant="20" symbolic="YES" type="user" id="SI9-XJ-wED"/>
-                            <constraint firstItem="nw0-iU-6IU" firstAttribute="leading" secondItem="e50-dN-88c" secondAttribute="leading" type="user" id="Uhk-zI-k6Y"/>
                             <constraint firstItem="k9D-vo-9kK" firstAttribute="top" secondItem="HMx-PO-Cc6" secondAttribute="top" constant="155" type="user" id="Ur6-6T-Ad0"/>
-                            <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="nw0-iU-6IU" secondAttribute="bottom" constant="322" type="user" id="gMy-rr-tSB"/>
                             <constraint firstAttribute="trailing" secondItem="k9D-vo-9kK" secondAttribute="trailing" constant="20" type="user" id="hdz-4D-XB8"/>
+                            <constraint firstItem="e50-dN-88c" firstAttribute="trailing" secondItem="ot8-6v-8QP" secondAttribute="trailing" type="default" id="i5F-a8-GuK"/>
                             <constraint firstAttribute="centerX" secondItem="DkV-Sw-uqe" secondAttribute="centerX" type="user" id="nb3-CL-ptW"/>
-                            <constraint firstItem="nw0-iU-6IU" firstAttribute="bottom" secondItem="e50-dN-88c" secondAttribute="bottom" type="user" id="ngQ-Zq-HOs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GJt-ak-EFB"/>
                     <connections>
                         <outlet property="activiyIndicator" destination="DkV-Sw-uqe" id="A0x-Ks-QgS"/>
-                        <outlet property="playButtonImageView" destination="nw0-iU-6IU" id="a9d-46-bra"/>
+                        <outlet property="playButton" destination="ot8-6v-8QP" id="hBx-oA-x2Q"/>
                         <outlet property="videoDetailTextView" destination="k9D-vo-9kK" id="hB5-UX-BH6"/>
                         <outlet property="videoImageView" destination="e50-dN-88c" id="f3V-LO-mBt"/>
                     </connections>
@@ -468,8 +474,6 @@ Cgo
         <image name="camera.png" width="26" height="26"/>
         <image name="clapboard.png" width="26" height="26"/>
         <image name="globe.png" width="26" height="26"/>
-        <image name="play-highlighted@2x.png" width="52" height="52"/>
-        <image name="play@2x.png" width="52" height="52"/>
     </resources>
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
@@ -481,8 +485,9 @@ Cgo
         <class className="PARVideoDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PARVideoDetailViewController.h"/>
             <relationships>
+                <relationship kind="action" name="playButtonTouched:"/>
                 <relationship kind="outlet" name="activiyIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="playButtonImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="playButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="videoDetailTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="videoImageView" candidateClass="UIImageView"/>
             </relationships>
@@ -532,6 +537,9 @@ Cgo
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

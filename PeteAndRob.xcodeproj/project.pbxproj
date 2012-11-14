@@ -66,12 +66,8 @@
 		9C56B62B164EAC43009724BE /* PARVideosResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C56B629164EAC43009724BE /* PARVideosResponse.m */; };
 		9C56B62E164EAC8A009724BE /* PARAbstractResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C56B62D164EAC8A009724BE /* PARAbstractResponse.m */; };
 		9C56B62F164EAC8A009724BE /* PARAbstractResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C56B62D164EAC8A009724BE /* PARAbstractResponse.m */; };
-		9C56B639164EBD92009724BE /* play-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C56B630164EBD92009724BE /* play-highlighted@2x.png */; };
-		9C56B63A164EBD92009724BE /* play-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C56B630164EBD92009724BE /* play-highlighted@2x.png */; };
 		9C56B63B164EBD92009724BE /* pete-and-rob-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C56B631164EBD92009724BE /* pete-and-rob-logo.png */; };
 		9C56B63C164EBD92009724BE /* pete-and-rob-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C56B631164EBD92009724BE /* pete-and-rob-logo.png */; };
-		9C56B63D164EBD92009724BE /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C56B632164EBD92009724BE /* play@2x.png */; };
-		9C56B63E164EBD92009724BE /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C56B632164EBD92009724BE /* play@2x.png */; };
 		9C56B63F164EBD92009724BE /* navigation-bar-landscape-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C56B633164EBD92009724BE /* navigation-bar-landscape-568h@2x.png */; };
 		9C56B640164EBD92009724BE /* navigation-bar-landscape-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C56B633164EBD92009724BE /* navigation-bar-landscape-568h@2x.png */; };
 		9C56B641164EBD92009724BE /* navigation-bar-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C56B634164EBD92009724BE /* navigation-bar-landscape.png */; };
@@ -84,6 +80,10 @@
 		9C56B648164EBD92009724BE /* navigation-bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C56B637164EBD92009724BE /* navigation-bar.png */; };
 		9C56B649164EBD92009724BE /* navigation-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C56B638164EBD92009724BE /* navigation-bar@2x.png */; };
 		9C56B64A164EBD92009724BE /* navigation-bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C56B638164EBD92009724BE /* navigation-bar@2x.png */; };
+		9CB126F016543212004671B4 /* play-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CB126EC16543212004671B4 /* play-highlighted.png */; };
+		9CB126F116543212004671B4 /* play-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CB126ED16543212004671B4 /* play-highlighted@2x.png */; };
+		9CB126F216543212004671B4 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CB126EE16543212004671B4 /* play.png */; };
+		9CB126F316543212004671B4 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CB126EF16543212004671B4 /* play@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,15 +165,17 @@
 		9C56B629164EAC43009724BE /* PARVideosResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARVideosResponse.m; sourceTree = "<group>"; };
 		9C56B62C164EAC8A009724BE /* PARAbstractResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARAbstractResponse.h; sourceTree = "<group>"; };
 		9C56B62D164EAC8A009724BE /* PARAbstractResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARAbstractResponse.m; sourceTree = "<group>"; };
-		9C56B630164EBD92009724BE /* play-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-highlighted@2x.png"; sourceTree = "<group>"; };
 		9C56B631164EBD92009724BE /* pete-and-rob-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pete-and-rob-logo.png"; sourceTree = "<group>"; };
-		9C56B632164EBD92009724BE /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
 		9C56B633164EBD92009724BE /* navigation-bar-landscape-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation-bar-landscape-568h@2x.png"; sourceTree = "<group>"; };
 		9C56B634164EBD92009724BE /* navigation-bar-landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation-bar-landscape.png"; sourceTree = "<group>"; };
 		9C56B635164EBD92009724BE /* navigation-bar-landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation-bar-landscape@2x.png"; sourceTree = "<group>"; };
 		9C56B636164EBD92009724BE /* navigation-bar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "navigation-bar.jpg"; sourceTree = "<group>"; };
 		9C56B637164EBD92009724BE /* navigation-bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation-bar.png"; sourceTree = "<group>"; };
 		9C56B638164EBD92009724BE /* navigation-bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation-bar@2x.png"; sourceTree = "<group>"; };
+		9CB126EC16543212004671B4 /* play-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-highlighted.png"; sourceTree = "<group>"; };
+		9CB126ED16543212004671B4 /* play-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-highlighted@2x.png"; sourceTree = "<group>"; };
+		9CB126EE16543212004671B4 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		9CB126EF16543212004671B4 /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,9 +363,11 @@
 			isa = PBXGroup;
 			children = (
 				963FCFBE16530A49002EB97A /* icons */,
-				9C56B630164EBD92009724BE /* play-highlighted@2x.png */,
+				9CB126EC16543212004671B4 /* play-highlighted.png */,
+				9CB126ED16543212004671B4 /* play-highlighted@2x.png */,
+				9CB126EE16543212004671B4 /* play.png */,
+				9CB126EF16543212004671B4 /* play@2x.png */,
 				9C56B631164EBD92009724BE /* pete-and-rob-logo.png */,
-				9C56B632164EBD92009724BE /* play@2x.png */,
 				9C56B633164EBD92009724BE /* navigation-bar-landscape-568h@2x.png */,
 				9C56B634164EBD92009724BE /* navigation-bar-landscape.png */,
 				9C56B635164EBD92009724BE /* navigation-bar-landscape@2x.png */,
@@ -477,9 +481,7 @@
 				9C56B616164EA6D6009724BE /* Default@2x.png in Resources */,
 				9C56B618164EA6E2009724BE /* logo-iphone-retina.png in Resources */,
 				9C56B61A164EA6E7009724BE /* logo-iphone.png in Resources */,
-				9C56B639164EBD92009724BE /* play-highlighted@2x.png in Resources */,
 				9C56B63B164EBD92009724BE /* pete-and-rob-logo.png in Resources */,
-				9C56B63D164EBD92009724BE /* play@2x.png in Resources */,
 				9C56B63F164EBD92009724BE /* navigation-bar-landscape-568h@2x.png in Resources */,
 				9C56B641164EBD92009724BE /* navigation-bar-landscape.png in Resources */,
 				9C56B643164EBD92009724BE /* navigation-bar-landscape@2x.png in Resources */,
@@ -493,6 +495,10 @@
 				963FCFD416530CAE002EB97A /* camera.png in Resources */,
 				963FCFD516530CAE002EB97A /* clapboard.png in Resources */,
 				963FCFD616530CAE002EB97A /* globe.png in Resources */,
+				9CB126F016543212004671B4 /* play-highlighted.png in Resources */,
+				9CB126F116543212004671B4 /* play-highlighted@2x.png in Resources */,
+				9CB126F216543212004671B4 /* play.png in Resources */,
+				9CB126F316543212004671B4 /* play@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,9 +508,7 @@
 			files = (
 				9C56B5E2164EA05B009724BE /* InfoPlist.strings in Resources */,
 				9C56B5FB164EA28E009724BE /* Localizable.strings in Resources */,
-				9C56B63A164EBD92009724BE /* play-highlighted@2x.png in Resources */,
 				9C56B63C164EBD92009724BE /* pete-and-rob-logo.png in Resources */,
-				9C56B63E164EBD92009724BE /* play@2x.png in Resources */,
 				9C56B640164EBD92009724BE /* navigation-bar-landscape-568h@2x.png in Resources */,
 				9C56B642164EBD92009724BE /* navigation-bar-landscape.png in Resources */,
 				9C56B644164EBD92009724BE /* navigation-bar-landscape@2x.png in Resources */,

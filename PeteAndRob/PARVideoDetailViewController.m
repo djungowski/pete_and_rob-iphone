@@ -18,11 +18,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(imageTapped:)];
-    self.playButtonImageView.userInteractionEnabled = YES;
-    [self.playButtonImageView addGestureRecognizer:tap];
-    
+        
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(moviePlayBackDidFinish:)
                                                  name:MPMoviePlayerPlaybackDidFinishNotification
@@ -33,34 +29,34 @@
                                                  name:MPMoviePlayerWillExitFullscreenNotification
                                                object:moviePlayer];
     
-    self.videoImageView.layer.masksToBounds = YES;
-    self.videoImageView.layer.cornerRadius = 5;
-    self.videoImageView.layer.borderColor = [UIColor grayColor].CGColor;
-    self.videoImageView.layer.borderWidth = 1.5;
+    _videoImageView.layer.masksToBounds = YES;
+    _videoImageView.layer.cornerRadius = 5;
+    _videoImageView.layer.borderColor = [UIColor grayColor].CGColor;
+    _videoImageView.layer.borderWidth = 1.5;
 
-    self.playButtonImageView.layer.shadowOpacity = 1;
-    self.playButtonImageView.layer.shadowRadius = 6;
-    self.playButtonImageView.layer.shadowOffset = CGSizeZero;
-    self.playButtonImageView.layer.shadowColor = [UIColor blackColor].CGColor;
+    [_playButton setImage:UIImage(@"play.png") forState:UIControlStateNormal];
+    [_playButton setImage:UIImage(@"play-highlighted.png") forState:UIControlStateHighlighted];
+    [_playButton setHidden:YES];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     self.title = _video.title;
-    self.videoDetailTextView.text = _video.detail;
+    _videoDetailTextView.text = _video.detail;
     
     __weak PARVideoDetailViewController* weakSelf = self;
     BasicBlock enableVideoPlayer = ^{
         weakSelf.videoImageView.image = [_video image];
         [weakSelf.activiyIndicator stopAnimating];
-        [weakSelf.playButtonImageView setHidden:NO];
+        [weakSelf.playButton setHidden:NO];
         [weakSelf.videoImageView setNeedsDisplay];
     };
     
     if (!self.video.image) {
         
-        [self.activiyIndicator startAnimating];
-        self.videoImageView.image = [UIImage imageNamed:@"pete-and-rob-logo.png"];
+        [_activiyIndicator startAnimating];
+        _videoImageView.image = [UIImage imageNamed:@"pete-and-rob-logo.png"];
         [_video onImageLoaded:^(UIImage *image) {
             enableVideoPlayer();
         }];
@@ -76,10 +72,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)imageTapped:(UITapGestureRecognizer *) gestureRecognizer
+- (IBAction)playButtonTouched:(id)sender
 {
-    [self.playButtonImageView setHighlighted:YES];
-
     NSURL *url = [NSURL URLWithString:_video.url];
     moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
     moviePlayer.controlStyle = MPMovieControlStyleFullscreen;
@@ -87,6 +81,7 @@
     moviePlayer.shouldAutoplay = YES;
     [self.view addSubview:moviePlayer.view];
     [moviePlayer setFullscreen:YES animated:YES];
+
 }
 
 - (void)moviePlayBackDidFinish:(NSNotification*)notification
@@ -95,7 +90,6 @@
         moviePlayer.view.alpha = 0;
     } completion:^(BOOL finished) {
         [moviePlayer.view removeFromSuperview];
-        [self.playButtonImageView setHighlighted:NO];
     }];
 }
 
