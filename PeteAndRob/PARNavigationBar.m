@@ -20,7 +20,7 @@
         [self setBackgroundImage:background forBarMetrics:UIBarMetricsDefault];
         [self setBackgroundImage:backgroundLandscape forBarMetrics:UIBarMetricsLandscapePhone];
         
-        self.titleTextAttributes = @{ UITextAttributeFont: FONT_BOLD(FONTSIZE_DEFAULT) };
+//        self.titleTextAttributes = @{ UITextAttributeFont: FONT_BOLD(FONTSIZE_DEFAULT) };
     }
     return self;
 }

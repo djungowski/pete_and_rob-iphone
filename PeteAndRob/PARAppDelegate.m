@@ -28,7 +28,7 @@
 
     [[UIBarButtonItem appearanceWhenContainedIn:[PARNavigationBar class], nil] setTintColor:UICOLOR_TINT];
 
-    NSLog(@"[[UIDevice currentDevice] platformString]  %@", [[UIDevice currentDevice] localizedModel] );
+//    NSLog(@"[[UIDevice currentDevice] platformString]  %@", [[UIDevice currentDevice] localizedModel] );
     
     lowPerformance = [@[@"iPhone3,1", @"iPhone2,1", @"iPod3,1"] containsObject:machineName()];
     

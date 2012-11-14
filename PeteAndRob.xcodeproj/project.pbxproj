@@ -121,7 +121,7 @@
 		9C2ECC3416519C0F00F663FC /* PARWallpaperDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARWallpaperDetailController.m; sourceTree = "<group>"; };
 		9C2ECC3716519C3B00F663FC /* PARWallpaperWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PARWallpaperWebViewController.h; sourceTree = "<group>"; };
 		9C2ECC3816519C3B00F663FC /* PARWallpaperWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PARWallpaperWebViewController.m; sourceTree = "<group>"; };
-		9C56B5A4164EA05B009724BE /* PeteAndRob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeteAndRob.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C56B5A4164EA05B009724BE /* Pete & Rob.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pete & Rob.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C56B5A8164EA05B009724BE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9C56B5AA164EA05B009724BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9C56B5AC164EA05B009724BE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -234,7 +234,7 @@
 		9C56B5A5164EA05B009724BE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9C56B5A4164EA05B009724BE /* PeteAndRob.app */,
+				9C56B5A4164EA05B009724BE /* Pete & Rob.app */,
 				9C56B5D6164EA05B009724BE /* PeteAndRobTests.octest */,
 			);
 			name = Products;
@@ -415,7 +415,7 @@
 			);
 			name = PeteAndRob;
 			productName = PeteAndRob;
-			productReference = 9C56B5A4164EA05B009724BE /* PeteAndRob.app */;
+			productReference = 9C56B5A4164EA05B009724BE /* Pete & Rob.app */;
 			productType = "com.apple.product-type.application";
 		};
 		9C56B5D5164EA05B009724BE /* PeteAndRobTests */ = {
@@ -675,7 +675,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PeteAndRob/PeteAndRob-Prefix.pch";
 				INFOPLIST_FILE = "PeteAndRob/PeteAndRob-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Pete & Rob";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -686,7 +686,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PeteAndRob/PeteAndRob-Prefix.pch";
 				INFOPLIST_FILE = "PeteAndRob/PeteAndRob-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Pete & Rob";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

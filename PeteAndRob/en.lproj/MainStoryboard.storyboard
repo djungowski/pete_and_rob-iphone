@@ -227,7 +227,7 @@ Cgo
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">www.PeteAndRob.com is a fun web project. The website has its origin in a nostalgic approach to child-hood. The content shall not be modified and then represented as original content.   This is NOT an official website and is not endorsed by PLAYMOBIL® (Geobra Brandstätter GmbH &amp; Co. KG). No copyright infringement is intended. This website is not owned, operated, sponsored or authorized by Geobra Brandstätter GmbH &amp; Co. KG. Geobra Brandstätter GmbH &amp; Co. KG does not endorse, and is not responsible for this website or any information or links contained herein; makes no express or implied warranties with regard to any information or links on this web site or any other linked web sites; and is not bound by any statements made on this web site, or by those who own or operate this web site. The trademark PLAYMOBIL® and the copyrighted images of PLAYMOBIL® products are the sole and exclusive property of Geobra Brandstätter GmbH &amp; Co. KG, which reserves all rights therein.   The short films may contain violence and the consumption of alcohol or other unhealthy substances. Playmobil® does not advocate the use of drugs or violence, in any shape or form.  www.PeteAndRob.com may provide links to other Internet sites for the convenience of users. www.PeteAndRob.com is not responsible for the availability or content of these external sites, nor does www.PeteAndRob.com endorse, warrant, or guarantee the products, services, or information described or offered at these other Internet sites.
+                                        <string key="content">www.PeteAndRob.com is a fun web project. The website has its origin in a nostalgic approach to child-hood. The content shall not be modified and then represented as original content.   This is NOT an official website and is not endorsed by PLAYMOBIL® (Geobra Brandstätter GmbH &amp; Co. KG). No copyright infringement is intended. This website is not owned, operated, sponsored or authorized by Geobra Brandstätter GmbH &amp; Co. KG. Geobra Brandstätter GmbH &amp; Co. KG does not endorse, and is not responsible for this website or any information or links contained herein; makes no express or implied warranties with regard to any information or links on this web site or any other linked web sites; and is not bound by any statements made on this web site, or by those who own or operate this web site. The trademark PLAYMOBIL® and the copyrighted images of PLAYMOBIL® products are the sole and exclusive property of Geobra Brandstätter GmbH &amp; Co. KG, which reserves all rights therein.   The short films may contain violence and the consumption of alcohol or other unhealthy substances. Playmobil® does not advocate the use of drugs or violence, in any shape or form.  The Pete &amp; Rop iPhone App was developed by Dominik Jungowski and Elmar Kretzer.
 </string>
                                         <attributes>
                                             <font key="NSFont" size="14" name="Helvetica"/>
@@ -519,6 +519,9 @@ Cgo
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
