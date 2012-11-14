@@ -164,7 +164,7 @@
         <!--View Controller - About-->
         <scene sceneID="fFW-Q2-GYn">
             <objects>
-                <viewController id="Mpu-eL-ALr" sceneMemberID="viewController">
+                <viewController title="About" id="Mpu-eL-ALr" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hnx-nz-oN9">
                         <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -247,13 +247,21 @@ Cgo
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6Z-fK-YUo" customClass="PARNavigationBar">
+                                <items>
+                                    <navigationItem title="About" id="scM-Mm-iaI"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="w6Z-fK-YUo" firstAttribute="leading" secondItem="Hnx-nz-oN9" secondAttribute="leading" type="default" id="9nV-Sq-gvd"/>
+                            <constraint firstItem="w6Z-fK-YUo" firstAttribute="top" secondItem="Hnx-nz-oN9" secondAttribute="top" type="default" id="AdC-D4-iZK"/>
+                            <constraint firstItem="j2O-gp-lJN" firstAttribute="top" secondItem="w6Z-fK-YUo" secondAttribute="bottom" type="default" id="FSn-OK-IZh"/>
                             <constraint firstItem="j2O-gp-lJN" firstAttribute="leading" secondItem="Hnx-nz-oN9" secondAttribute="leading" type="default" id="P3D-HQ-Mf1"/>
                             <constraint firstItem="j2O-gp-lJN" firstAttribute="trailing" secondItem="Hnx-nz-oN9" secondAttribute="trailing" type="default" id="VfU-jN-kRb"/>
-                            <constraint firstItem="j2O-gp-lJN" firstAttribute="bottom" secondItem="Hnx-nz-oN9" secondAttribute="bottom" type="default" id="gBu-4J-2t3"/>
-                            <constraint firstItem="j2O-gp-lJN" firstAttribute="top" secondItem="Hnx-nz-oN9" secondAttribute="top" type="default" id="t02-fA-Lee"/>
+                            <constraint firstItem="w6Z-fK-YUo" firstAttribute="trailing" secondItem="Hnx-nz-oN9" secondAttribute="trailing" type="default" id="YRu-Qt-Dlz"/>
+                            <constraint firstItem="j2O-gp-lJN" firstAttribute="bottom" secondItem="Hnx-nz-oN9" secondAttribute="bottom" type="default" id="dcs-Mr-dbc"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="About" image="globe.png" id="VV3-G4-kHr"/>
@@ -537,9 +545,6 @@ Cgo
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
