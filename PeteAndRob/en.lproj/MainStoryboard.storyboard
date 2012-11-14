@@ -372,7 +372,7 @@ Cgo
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lYM-QG-LgX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="lYM-QG-LgX">
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="460" type="user" id="GlJ-sC-njv"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" type="user" id="Khs-i9-MJC"/>
@@ -525,6 +525,9 @@ Cgo
         <class className="PARWallpaperDetailController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PARWallpaperDetailController.h"/>
             <relationships>
+                <relationship kind="action" name="highTouched:"/>
+                <relationship kind="action" name="lowTouched:"/>
+                <relationship kind="action" name="normalTouched:"/>
                 <relationship kind="outlet" name="highImageButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="lowImageButton" candidateClass="UIButton"/>
@@ -542,6 +545,9 @@ Cgo
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
