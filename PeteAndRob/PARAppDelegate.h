@@ -14,5 +14,6 @@
 @property (strong, nonatomic) UITabBarController *tabBarController;
 
 - (BOOL)isLowPerformanceDevice;
++ (BOOL)isOnline;
 
 @end

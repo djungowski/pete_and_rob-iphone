@@ -38,7 +38,7 @@ static NSString* CELL_LOADING  = @"cell_loading";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Adventures";
+    self.title = @"Stop Motion Films";
     _videos = @[];
     
     // Pull to refresh
@@ -46,6 +46,11 @@ static NSString* CELL_LOADING  = @"cell_loading";
     self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to refresh..."];
     [self.refreshControl addTarget:self action:@selector(refreshAndClear) forControlEvents:UIControlEventValueChanged];
     [self.refreshControl beginRefreshing];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reachabilityChanged:)
+                                                 name:NOTIFICATION_REACHABILITY_CHANGED
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,8 +60,28 @@ static NSString* CELL_LOADING  = @"cell_loading";
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self refreshAndAdd];
+    if([PARAppDelegate isOnline]){
+        [self refreshAndAdd];
+    } else {
+        didLoadCompleteList = YES;
+        [self.refreshControl endRefreshing];
+        [self.refreshControl setEnabled:NO];
+        // TODO add View
+    }
     [[self tableView] deselectRowAtIndexPath:[[self tableView] indexPathForSelectedRow] animated:YES];
+}
+
+-(void)reachabilityChanged:(NSNotification*)notification
+{
+    BOOL isOnline = [[notification userInfo][KEY_REACHABILITY] boolValue];
+    if(isOnline){
+        if([_videos count] < 1){
+            [self refreshAndAdd];
+        }
+        [self.refreshControl setEnabled:YES];
+    } else {
+        [self.refreshControl setEnabled:NO];
+    }
 }
 
 #pragma mark private

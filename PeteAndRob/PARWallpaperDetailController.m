@@ -8,6 +8,7 @@
 
 #import "PARWallpaperDetailController.h"
 #import "PARWallpaper.h"
+#import "PARAppDelegate.h"
 
 @interface PARWallpaperDetailController ()
 
@@ -49,6 +50,9 @@
 
 - (IBAction)lowTouched:(id)sender
 {
+    if(![PARAppDelegate isOnline]){
+        return;
+    }
     urlToSave = _wallpaper.lowImageUrl;
     [sheet setTitle:@"Save wallpaper 320x240"];
     [sheet showFromTabBar:self.tabBarController.tabBar];
@@ -56,13 +60,19 @@
 
 - (IBAction)normalTouched:(id)sender
 {
-     urlToSave = _wallpaper.normalImageUrl;
+    if(![PARAppDelegate isOnline]){
+        return;
+    }
+    urlToSave = _wallpaper.normalImageUrl;
     [sheet setTitle:@"Save wallpaper 640x960"];
     [sheet showFromTabBar:self.tabBarController.tabBar];
 }
 
 - (IBAction)highTouched:(id)sender
 {
+    if(![PARAppDelegate isOnline]){
+        return;
+    }
     urlToSave = _wallpaper.highImageUrl;
     [sheet setTitle:@"Save wallpaper 640x1136"];
     [sheet showFromTabBar:self.tabBarController.tabBar];

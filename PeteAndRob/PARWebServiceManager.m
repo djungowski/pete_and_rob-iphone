@@ -8,6 +8,7 @@
 
 #import "PARWebServiceManager.h"
 #import "PARVideosResponse.h"
+#import "PARAppDelegate.h"
 #import "PARWallpapersResponse.h"
 
 @implementation PARWebServiceManager{
@@ -35,7 +36,7 @@
 {
     self = [super init];
     if(self){
-        
+
     }
     return self;
 }
@@ -45,6 +46,7 @@
 - (void)videosStartingAtIndex:(int)start completion:(PARVideosResponseBlock)completion
 {
     if(isRequestingVideos) return;
+    if(![PARAppDelegate isOnline]) return;
     isRequestingVideos = YES;
     
     IdBlock callback = ^(id json){
@@ -67,6 +69,7 @@
 - (void)wallpapersStartingAtIndex:(int)start completion:(PARWallpapersResponseBlock)completion
 {
     if(isRequestingWallpapers) return;
+    if(![PARAppDelegate isOnline]) return;
     isRequestingWallpapers = YES;
     
     IdBlock callback = ^(id json){

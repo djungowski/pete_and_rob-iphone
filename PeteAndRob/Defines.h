@@ -48,5 +48,7 @@ blue:(float)b/255.0 alpha:1.0]
 #define NSSTRING_TWITTER @"http://twitter.com/share?url="
 #define NSSTRING_GOOGLE @"https://m.google.com/app/plus/x/?v=compose&content="
 
+#define NOTIFICATION_REACHABILITY_CHANGED @"reachabilityChanged"
+#define KEY_REACHABILITY @"key_reachable"
 
 #endif

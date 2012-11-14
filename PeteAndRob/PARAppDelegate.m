@@ -9,12 +9,13 @@
 #import "PARAppDelegate.h"
 #import "PARNavigationBar.h"
 #import <sys/utsname.h>
-
-
-
+#import "Reachability.h"
+#import "PARWebServiceManager.h"
 
 @implementation PARAppDelegate{
     BOOL lowPerformance;
+    Reachability* internetReach;
+    BOOL isOnline;
 }
 
 - (BOOL)isLowPerformanceDevice
@@ -27,10 +28,13 @@
     _tabBarController = (UITabBarController *)self.window.rootViewController;
 
     [[UIBarButtonItem appearanceWhenContainedIn:[PARNavigationBar class], nil] setTintColor:UICOLOR_TINT];
-
-//    NSLog(@"[[UIDevice currentDevice] platformString]  %@", [[UIDevice currentDevice] localizedModel] );
     
     lowPerformance = [@[@"iPhone3,1", @"iPhone2,1", @"iPod3,1"] containsObject:machineName()];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+
+    // init for notifications
+    [PARWebServiceManager sharedInstance];
     
     return YES;
 }
@@ -54,7 +58,9 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    internetReach = [Reachability reachabilityForInternetConnection];
+    [internetReach startNotifier];
+    [self updateInterfaceWithReachability:internetReach];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -69,6 +75,44 @@ NSString* machineName(){
     
     return [NSString stringWithCString:systemInfo.machine
                               encoding:NSUTF8StringEncoding];
+}
+
+//Called by Reachability whenever status changes.
+- (void)reachabilityChanged: (NSNotification* )note
+{
+    Reachability* curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass: [Reachability class]]);
+    [self updateInterfaceWithReachability: curReach];
+}
+
+- (void)updateInterfaceWithReachability: (Reachability*) curReach
+{
+    BOOL notify = NO;
+    if(NotReachable != [curReach currentReachabilityStatus]){
+        if(!isOnline){
+            notify = YES; 
+        }
+        isOnline = YES;
+    } else {
+        if(isOnline){
+            notify = YES;
+        }
+        isOnline = NO;
+    }
+    if(notify){
+        [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:NOTIFICATION_REACHABILITY_CHANGED object:nil userInfo:@{KEY_REACHABILITY:@(isOnline)}]];
+    }
+        
+}
+
+-(BOOL)isOnline
+{
+   return isOnline;  
+}
+
++(BOOL)isOnline
+{
+    return [(PARAppDelegate*)[[UIApplication sharedApplication] delegate] isOnline];
 }
 
 @end

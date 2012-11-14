@@ -8,6 +8,7 @@
 
 #import "PARWallpaper.h"
 #import "NSObject+JsonMappable.h"
+#import "PARAppDelegate.h"
 
 @implementation PARWallpaper
 
@@ -41,6 +42,9 @@
         dispatch_sync(dispatch_get_main_queue(), ^{
             handler(_image);
         });
+    }
+    if([PARAppDelegate isOnline] == NO){
+        return;
     }
     __weak id weakSelf = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{

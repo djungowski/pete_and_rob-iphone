@@ -11,6 +11,7 @@
 #import "PARWallpapersResponse.h"
 #import "PARWallpaperCell.h"
 #import "PARWallpaper.h"
+#import "PARAppDelegate.h"
 
 @interface PARWallpaperCollectionController ()
 
@@ -34,6 +35,11 @@
     [super viewDidLoad];
     _wallpapers = @[];
     self.title = @"Wallpapers";
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reachabilityChanged:)
+                                                 name:NOTIFICATION_REACHABILITY_CHANGED
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,8 +52,24 @@
     [[self collectionView] flashScrollIndicators];
     if([_wallpapers count] > 0){
         [self.spinner stopAnimating];
-    } else {
+        return;
+    } 
+    if([PARAppDelegate isOnline]){
         [self refreshAndClear];
+    } else {
+        [self.spinner stopAnimating];
+    }
+}
+
+-(void)reachabilityChanged:(NSNotification*)notification
+{
+    BOOL isOnline = [[notification userInfo][KEY_REACHABILITY] boolValue];
+    if(isOnline){
+        if([_wallpapers count] < 1){
+            [self refreshAndAdd];
+        }
+    } else {
+        // TODO add View 
     }
 }
 

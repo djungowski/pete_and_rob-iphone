@@ -8,6 +8,7 @@
 
 #import "PARVideoDetailViewController.h"
 #import "PARVideo.h"
+#import "PARAppDelegate.h"
 
 @interface PARVideoDetailViewController ()
 
@@ -29,6 +30,10 @@
                                                  name:MPMoviePlayerWillExitFullscreenNotification
                                                object:moviePlayer];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reachabilityChanged:)
+                                                 name:NOTIFICATION_REACHABILITY_CHANGED
+                                               object:nil];
     _videoImageView.layer.masksToBounds = YES;
     _videoImageView.layer.cornerRadius = 5;
     _videoImageView.layer.borderColor = [UIColor grayColor].CGColor;
@@ -40,10 +45,28 @@
 
 }
 
+-(void)reachabilityChanged:(NSNotification*)notification
+{
+    BOOL isOnline = [[notification userInfo][KEY_REACHABILITY] boolValue];
+    if(isOnline){
+        [_playButton setEnabled:YES];
+        _playButton.alpha = 1;
+    } else {
+        [_playButton setEnabled:NO];
+        _playButton.alpha = 0.5;
+    }
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     self.title = _video.title;
     _videoDetailTextView.text = _video.detail;
+    
+    if(![PARAppDelegate isOnline]){
+        [_playButton setEnabled:NO];
+        _playButton.alpha = 0.5;
+        return;
+    }
     
     __weak PARVideoDetailViewController* weakSelf = self;
     BasicBlock enableVideoPlayer = ^{
