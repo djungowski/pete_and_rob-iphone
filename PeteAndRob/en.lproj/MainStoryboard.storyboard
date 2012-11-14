@@ -282,7 +282,7 @@ Cgo
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="qLe-QW-arn">
-                            <size key="itemSize" width="148" height="211"/>
+                            <size key="itemSize" width="160" height="203"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -294,20 +294,23 @@ Cgo
                         </activityIndicatorView>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="wallpaper_cell" id="zvo-mg-APd" customClass="PARWallpaperCell">
-                                <rect key="frame" x="0.0" y="0.0" width="148" height="211"/>
+                                <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="148" height="211"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="160" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="EY2-I1-2zO">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="159" type="user" id="oQm-z2-Dhp"/>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="108" type="user" id="sLo-dg-Qjg"/>
-                                                <constraint firstAttribute="height" constant="159" type="user" id="x1C-Eb-ddg"/>
+                                                <constraint firstAttribute="width" constant="120" type="user" id="g3p-Uy-7OV"/>
+                                                <constraint firstAttribute="height" constant="150" type="user" id="jfM-fT-j6t"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaA-lV-Vd9">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="121" type="user" id="dNT-66-E12"/>
+                                                <constraint firstAttribute="height" constant="25" type="user" id="te9-7F-czm"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -316,17 +319,15 @@ Cgo
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="EY2-I1-2zO" secondAttribute="centerX" type="user" id="3bK-qc-R5S"/>
-                                    <constraint firstAttribute="trailing" secondItem="aaA-lV-Vd9" secondAttribute="trailing" constant="20" type="default" id="AAp-f1-3AH"/>
-                                    <constraint firstItem="aaA-lV-Vd9" firstAttribute="top" secondItem="zvo-mg-APd" secondAttribute="top" constant="8" type="user" id="BcX-Xa-SdN"/>
-                                    <constraint firstItem="EY2-I1-2zO" firstAttribute="leading" secondItem="zvo-mg-APd" secondAttribute="leading" constant="20" type="user" id="Fe5-Oe-5FS"/>
-                                    <constraint firstItem="EY2-I1-2zO" firstAttribute="top" secondItem="zvo-mg-APd" secondAttribute="top" constant="37" type="user" id="G2C-e0-ur8"/>
-                                    <constraint firstItem="EY2-I1-2zO" firstAttribute="leading" secondItem="zvo-mg-APd" secondAttribute="leading" constant="20" type="user" id="TBC-30-3zF"/>
-                                    <constraint firstItem="EY2-I1-2zO" firstAttribute="top" secondItem="aaA-lV-Vd9" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="TyY-KI-MEn"/>
-                                    <constraint firstAttribute="trailing" secondItem="EY2-I1-2zO" secondAttribute="trailing" constant="20" type="user" id="W70-uo-ucJ"/>
-                                    <constraint firstItem="aaA-lV-Vd9" firstAttribute="leading" secondItem="zvo-mg-APd" secondAttribute="leading" constant="20" type="user" id="WnP-Rd-w1Z"/>
-                                    <constraint firstAttribute="bottom" secondItem="EY2-I1-2zO" secondAttribute="bottom" constant="15" type="user" id="jxh-Zt-6ba"/>
+                                    <constraint firstAttribute="trailing" secondItem="EY2-I1-2zO" secondAttribute="trailing" constant="20" type="user" id="33i-8a-8ja"/>
+                                    <constraint firstItem="aaA-lV-Vd9" firstAttribute="top" secondItem="zvo-mg-APd" secondAttribute="top" constant="7" type="user" id="Kyd-8P-TLD"/>
+                                    <constraint firstAttribute="trailing" secondItem="aaA-lV-Vd9" secondAttribute="trailing" constant="19" type="user" id="N0O-gg-27O"/>
+                                    <constraint firstAttribute="trailing" secondItem="EY2-I1-2zO" secondAttribute="trailing" constant="20" type="user" id="U4r-sj-tDv"/>
+                                    <constraint firstItem="aaA-lV-Vd9" firstAttribute="leading" secondItem="zvo-mg-APd" secondAttribute="leading" constant="20" type="user" id="b7a-5d-z7j"/>
+                                    <constraint firstItem="EY2-I1-2zO" firstAttribute="top" secondItem="zvo-mg-APd" secondAttribute="top" constant="35" type="user" id="nP4-4p-0Zy"/>
+                                    <constraint firstItem="EY2-I1-2zO" firstAttribute="leading" secondItem="zvo-mg-APd" secondAttribute="leading" constant="20" type="user" id="rtP-b9-p56"/>
                                 </constraints>
+                                <size key="customSize" width="160" height="200"/>
                                 <connections>
                                     <outlet property="imageView" destination="EY2-I1-2zO" id="c9v-Ub-X5f"/>
                                     <outlet property="titleLabel" destination="aaA-lV-Vd9" id="KhL-Qq-gYi"/>
@@ -531,9 +532,6 @@ Cgo
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
