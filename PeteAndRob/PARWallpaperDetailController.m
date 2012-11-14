@@ -8,13 +8,15 @@
 
 #import "PARWallpaperDetailController.h"
 #import "PARWallpaper.h"
-#import "PARWallpaperWebViewController.h"
 
 @interface PARWallpaperDetailController ()
 
 @end
 
-@implementation PARWallpaperDetailController
+@implementation PARWallpaperDetailController{
+    UIActionSheet *sheet;
+    NSString *urlToSave;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,18 +27,16 @@
     return self;
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    _lowImageButton.tintColor = UICOLOR_TINT;
-    _normalImageButton.tintColor = UICOLOR_TINT;
-    _highImageButton.tintColor = UICOLOR_TINT;
-    
-    _imageView.layer.masksToBounds = YES;
-    _imageView.layer.cornerRadius = 5;
-    _imageView.layer.borderColor = [UIColor grayColor].CGColor;
-    _imageView.layer.borderWidth = 1.5;
+    sheet = [[UIActionSheet alloc] initWithTitle:@"Save wallpaper" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Save", nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -45,26 +45,41 @@
     self.imageView.image = _wallpaper.image;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+#pragma mark IBActions
+
+- (IBAction)lowTouched:(id)sender
 {
-    if(sender == _lowImageButton){
-        [[segue destinationViewController] setUrl:_wallpaper.lowImageUrl];
-        return;
-    }
-    if(sender == _normalImageButton){
-        [[segue destinationViewController] setUrl:_wallpaper.normalImageUrl];
-        return;
-    }
-    if(sender == _highImageButton){
-        [[segue destinationViewController] setUrl:_wallpaper.highImageUrl];
-        return;
-    }
+    urlToSave = _wallpaper.lowImageUrl;
+    [sheet setTitle:@"Save wallpaper 320x240"];
+    [sheet showFromTabBar:self.tabBarController.tabBar];
 }
 
-
-- (void)didReceiveMemoryWarning
+- (IBAction)normalTouched:(id)sender
 {
-    [super didReceiveMemoryWarning];
+     urlToSave = _wallpaper.normalImageUrl;
+    [sheet setTitle:@"Save wallpaper 640x960"];
+    [sheet showFromTabBar:self.tabBarController.tabBar];
+}
+
+- (IBAction)highTouched:(id)sender
+{
+    urlToSave = _wallpaper.highImageUrl;
+    [sheet setTitle:@"Save wallpaper 640x1136"];
+    [sheet showFromTabBar:self.tabBarController.tabBar];
+}
+
+#pragma mark UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    // cancel
+    if(buttonIndex == 1){
+        return;
+    }
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlToSave]]];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 }
 
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class PARWallpaper;
 
-@interface PARWallpaperDetailController : UIViewController
+@interface PARWallpaperDetailController : UIViewController<UIActionSheetDelegate>
 
 @property (strong, nonatomic) PARWallpaper* wallpaper;
 

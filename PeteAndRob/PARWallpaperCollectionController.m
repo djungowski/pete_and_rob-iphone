@@ -43,10 +43,11 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self refreshAndClear];
     [[self collectionView] flashScrollIndicators];
     if([_wallpapers count] > 0){
         [self.spinner stopAnimating];
+    } else {
+        [self refreshAndClear];
     }
 }
 
