@@ -26,8 +26,8 @@ blue:(float)b/255.0 alpha:1.0]
 #define DURATION_URL_REQUEST_TIMEOUT 20
 
 // UIFonts
-#define FONT_DEFAULT(s) [UIFont fontWithName:@"Futura-CondensedMedium" size:s]
-#define FONT_BOLD(s)    [UIFont fontWithName:@"Futura-CondensedExtraBold" size:s]
+#define FONT_DEFAULT(s) [UIFont fontWithName:@"System" size:s]
+#define FONT_BOLD(s)    [UIFont fontWithName:@"System Bold" size:s]
 // font sizes
 #define FONTSIZE_SMALL   17
 #define FONTSIZE_DEFAULT 21

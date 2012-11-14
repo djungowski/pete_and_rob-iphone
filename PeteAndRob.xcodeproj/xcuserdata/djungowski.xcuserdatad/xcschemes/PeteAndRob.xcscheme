@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9C56B5A3164EA05B009724BE"
-               BuildableName = "PeteAndRob.app"
+               BuildableName = "Pete &amp; Rob.app"
                BlueprintName = "PeteAndRob"
                ReferencedContainer = "container:PeteAndRob.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9C56B5A3164EA05B009724BE"
-            BuildableName = "PeteAndRob.app"
+            BuildableName = "Pete &amp; Rob.app"
             BlueprintName = "PeteAndRob"
             ReferencedContainer = "container:PeteAndRob.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9C56B5A3164EA05B009724BE"
-            BuildableName = "PeteAndRob.app"
+            BuildableName = "Pete &amp; Rob.app"
             BlueprintName = "PeteAndRob"
             ReferencedContainer = "container:PeteAndRob.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9C56B5A3164EA05B009724BE"
-            BuildableName = "PeteAndRob.app"
+            BuildableName = "Pete &amp; Rob.app"
             BlueprintName = "PeteAndRob"
             ReferencedContainer = "container:PeteAndRob.xcodeproj">
          </BuildableReference>
