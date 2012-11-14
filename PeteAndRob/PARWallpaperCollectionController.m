@@ -45,6 +45,9 @@
 {
     [self refreshAndClear];
     [[self collectionView] flashScrollIndicators];
+    if([_wallpapers count] > 0){
+        [self.spinner stopAnimating];
+    }
 }
 
 #pragma mark private
