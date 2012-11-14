@@ -11,5 +11,6 @@
 @interface PARWallpaperCollectionController : UICollectionViewController
 
 @property (strong, nonatomic) NSArray* wallpapers;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end

@@ -63,6 +63,7 @@
 {
     BOOL startAtIndexZero = startingIndex == 0;
     if(!didLoadCompleteList || startAtIndexZero){
+        [self.spinner startAnimating];
         __weak id weakSelf = self;
         __block int count = startingIndex;
         __block NSMutableArray *videosAfterUpdate = startAtIndexZero ? [@[] mutableCopy] : [_wallpapers mutableCopy];
@@ -73,6 +74,7 @@
             // 1. no response
             if([response.wallpapers count] < 1){
                 [[weakSelf tableView] deleteSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationTop];
+                [self.spinner stopAnimating];
                 return;
             }
             // 2. no new videos after pull
@@ -85,6 +87,7 @@
             // 3. reload after startAtIndexZero
             if(startAtIndexZero){
                 [[weakSelf collectionView] reloadData];
+                [self.spinner stopAnimating];
                 return;
             }
             
@@ -94,6 +97,7 @@
                 [paths addObject:[NSIndexPath indexPathForRow:(count + idx) inSection:0]];
             }];
             [[weakSelf collectionView] insertItemsAtIndexPaths:paths];
+            [self.spinner stopAnimating];
         }];
     }
 }

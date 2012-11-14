@@ -285,6 +285,11 @@ Cgo
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
+                        <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" animating="YES" style="gray" id="6cZ-le-HZa">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </activityIndicatorView>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="wallpaper_cell" id="zvo-mg-APd" customClass="PARWallpaperCell">
                                 <rect key="frame" x="0.0" y="0.0" width="148" height="211"/>
@@ -334,6 +339,7 @@ Cgo
                     <tabBarItem key="tabBarItem" title="Wallpaper" image="camera.png" id="eTf-iU-yBk"/>
                     <navigationItem key="navigationItem" id="uWJ-0O-gYX"/>
                     <connections>
+                        <outlet property="spinner" destination="6cZ-le-HZa" id="oij-UM-C3Y"/>
                         <segue destination="Qoe-kh-zF9" kind="push" identifier="segue_wallpaper" id="epV-8h-juA"/>
                     </connections>
                 </collectionViewController>
@@ -462,6 +468,72 @@ Cgo
         <image name="play-highlighted@2x.png" width="52" height="52"/>
         <image name="play@2x.png" width="52" height="52"/>
     </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PARNavigationBar" superclassName="UINavigationBar">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PARNavigationBar.h"/>
+        </class>
+        <class className="PARVideoDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PARVideoDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activiyIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="playButtonImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="videoDetailTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="videoImageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="PARVideosTableViewCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PARVideosTableViewCell.h"/>
+        </class>
+        <class className="PARVideosViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PARVideosViewController.h"/>
+        </class>
+        <class className="PARWallpaperCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PARWallpaperCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="PARWallpaperCollectionController" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PARWallpaperCollectionController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
+            </relationships>
+        </class>
+        <class className="PARWallpaperDetailController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PARWallpaperDetailController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="highImageButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="lowImageButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="normalImageButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="PARWallpaperWebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PARWallpaperWebViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
