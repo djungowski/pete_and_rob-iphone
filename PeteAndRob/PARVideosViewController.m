@@ -24,6 +24,7 @@ static NSString* CELL_LOADING  = @"cell_loading";
 
 @implementation PARVideosViewController{
     __block BOOL didLoadCompleteList;
+    UIImageView *_offlineImageView;
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -47,6 +48,8 @@ static NSString* CELL_LOADING  = @"cell_loading";
     [self.refreshControl addTarget:self action:@selector(refreshAndClear) forControlEvents:UIControlEventValueChanged];
     [self.refreshControl beginRefreshing];
     
+    _offlineImageView = [[UIImageView alloc] initWithImage:UIImage(@"offline.jpg")];
+    _offlineImageView.contentMode = UIViewContentModeScaleAspectFill;
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reachabilityChanged:)
                                                  name:NOTIFICATION_REACHABILITY_CHANGED
@@ -60,27 +63,36 @@ static NSString* CELL_LOADING  = @"cell_loading";
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    if([PARAppDelegate isOnline]){
+    BOOL isOnline = [PARAppDelegate isOnline];
+    if(isOnline){
         [self refreshAndAdd];
     } else {
-        didLoadCompleteList = YES;
         [self.refreshControl endRefreshing];
-        [self.refreshControl setEnabled:NO];
-        // TODO add View
     }
+    [self updateUIForReachability:isOnline];
     [[self tableView] deselectRowAtIndexPath:[[self tableView] indexPathForSelectedRow] animated:YES];
 }
 
 -(void)reachabilityChanged:(NSNotification*)notification
 {
     BOOL isOnline = [[notification userInfo][KEY_REACHABILITY] boolValue];
+    if( isOnline && [_videos count] < 1){
+        [self refreshAndAdd];
+    }
+    [self updateUIForReachability:isOnline];
+}
+
+- (void)updateUIForReachability:(BOOL)isOnline
+{
     if(isOnline){
-        if([_videos count] < 1){
-            [self refreshAndAdd];
-        }
+        [_offlineImageView removeFromSuperview];
         [self.refreshControl setEnabled:YES];
-    } else {
+    }else {
         [self.refreshControl setEnabled:NO];
+        if([_videos count] < 1){
+            _offlineImageView.frame = [[self view] frame];
+            [[self view] addSubview:_offlineImageView];
+        }
     }
 }
 
@@ -110,7 +122,9 @@ static NSString* CELL_LOADING  = @"cell_loading";
             didLoadCompleteList = [response.videos count] < NUMBER_RSS_ITEMS;
             // 1. no response 
             if([response.videos count] < 1){
-                [[weakSelf tableView] deleteSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationTop];
+                if([[weakSelf tableView] numberOfSections] == 2){
+                    [[weakSelf tableView] deleteSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationTop];
+                }
                 return;
             }
             // 2. no new videos after pull

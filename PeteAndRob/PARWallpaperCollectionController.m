@@ -19,6 +19,7 @@
 
 @implementation PARWallpaperCollectionController{
     __block BOOL didLoadCompleteList;
+    UIImageView *_offlineImageView;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -40,6 +41,9 @@
                                              selector:@selector(reachabilityChanged:)
                                                  name:NOTIFICATION_REACHABILITY_CHANGED
                                                object:nil];
+    
+    _offlineImageView = [[UIImageView alloc] initWithImage:UIImage(@"offline.jpg")];
+    _offlineImageView.contentMode = UIViewContentModeScaleAspectFill;
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,14 +53,30 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [[self collectionView] flashScrollIndicators];
+    BOOL isOnline = [PARAppDelegate isOnline];
     if([_wallpapers count] > 0){
+        [[self collectionView] flashScrollIndicators];
         [self.spinner stopAnimating];
         return;
     } 
     if([PARAppDelegate isOnline]){
         [self refreshAndClear];
+    }
+    [self updateUIForReachability:isOnline];
+}
+
+- (void)updateUIForReachability:(BOOL)isOnline
+{
+    if(isOnline){
+        [_offlineImageView removeFromSuperview];
+        if([_wallpapers count] < 1){
+            [self.spinner startAnimating];
+        }
     } else {
+        if([_wallpapers count] < 1){
+            _offlineImageView.frame = [[self view] frame];
+            [[self view] addSubview:_offlineImageView];
+        }
         [self.spinner stopAnimating];
     }
 }
@@ -68,8 +88,11 @@
         if([_wallpapers count] < 1){
             [self refreshAndAdd];
         }
+        [_offlineImageView setHidden:YES];
     } else {
-        // TODO add View 
+        if([_wallpapers count] < 1){
+            [_offlineImageView setHidden:NO];
+        }
     }
 }
 

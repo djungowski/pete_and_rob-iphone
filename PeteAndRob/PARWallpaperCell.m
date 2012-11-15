@@ -23,9 +23,7 @@
 - (void)awakeFromNib
 {
     self.imageView.layer.masksToBounds = YES;
-    self.imageView.layer.cornerRadius = 5;
-    self.imageView.layer.borderColor = [UIColor grayColor].CGColor;
-    
+       
     self.titleLabel.font = FONT_DEFAULT(FONTSIZE_DEFAULT);
     self.titleLabel.numberOfLines = 2;
     self.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -34,6 +32,10 @@
 - (void)setWallpaper:(PARWallpaper*)wallpaper
 {
     self.titleLabel.text = wallpaper.title;
+    self.imageView.layer.cornerRadius = 5;
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.imageView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.imageView.layer.borderWidth = 1.5;
     self.imageView.image = wallpaper.image;
     
     if (!self.imageView.image) {

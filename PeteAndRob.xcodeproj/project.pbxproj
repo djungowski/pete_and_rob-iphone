@@ -83,6 +83,8 @@
 		9CB126F116543212004671B4 /* play-highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CB126ED16543212004671B4 /* play-highlighted@2x.png */; };
 		9CB126F216543212004671B4 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CB126EE16543212004671B4 /* play.png */; };
 		9CB126F316543212004671B4 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CB126EF16543212004671B4 /* play@2x.png */; };
+		9CFE8DF616557EB30038FB6C /* offline@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9CFE8DF416557EB30038FB6C /* offline@2x.jpg */; };
+		9CFE8DF716557EB30038FB6C /* offline.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9CFE8DF516557EB30038FB6C /* offline.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +175,8 @@
 		9CB126ED16543212004671B4 /* play-highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-highlighted@2x.png"; sourceTree = "<group>"; };
 		9CB126EE16543212004671B4 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 		9CB126EF16543212004671B4 /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
+		9CFE8DF416557EB30038FB6C /* offline@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "offline@2x.jpg"; sourceTree = "<group>"; };
+		9CFE8DF516557EB30038FB6C /* offline.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = offline.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +362,8 @@
 			isa = PBXGroup;
 			children = (
 				963FCFBE16530A49002EB97A /* icons */,
+				9CFE8DF416557EB30038FB6C /* offline@2x.jpg */,
+				9CFE8DF516557EB30038FB6C /* offline.jpg */,
 				9CB126EC16543212004671B4 /* play-highlighted.png */,
 				9CB126ED16543212004671B4 /* play-highlighted@2x.png */,
 				9CB126EE16543212004671B4 /* play.png */,
@@ -494,6 +500,8 @@
 				9CB126F116543212004671B4 /* play-highlighted@2x.png in Resources */,
 				9CB126F216543212004671B4 /* play.png in Resources */,
 				9CB126F316543212004671B4 /* play@2x.png in Resources */,
+				9CFE8DF616557EB30038FB6C /* offline@2x.jpg in Resources */,
+				9CFE8DF716557EB30038FB6C /* offline.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

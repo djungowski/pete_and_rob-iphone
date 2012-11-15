@@ -53,8 +53,8 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="j0w-4P-bfk" firstAttribute="centerX" secondItem="eab-Eu-lNq" secondAttribute="centerX" type="default" id="j8s-g6-qcu"/>
-                                    <constraint firstItem="j0w-4P-bfk" firstAttribute="centerY" secondItem="eab-Eu-lNq" secondAttribute="centerY" type="default" id="pg9-gA-j7F"/>
+                                    <constraint firstAttribute="centerY" secondItem="j0w-4P-bfk" secondAttribute="centerY" type="user" id="Zag-TD-JdP"/>
+                                    <constraint firstItem="j0w-4P-bfk" firstAttribute="centerX" secondItem="eab-Eu-lNq" secondAttribute="centerX" type="user" id="j8s-g6-qcu"/>
                                 </constraints>
                             </tableViewCell>
                         </prototypes>
@@ -301,10 +301,9 @@ Cgo
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
-                        <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" animating="YES" style="gray" id="6cZ-le-HZa">
+                        <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" animating="YES" style="gray" id="aQh-K2-kCc">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </activityIndicatorView>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="wallpaper_cell" id="zvo-mg-APd" customClass="PARWallpaperCell">
@@ -356,7 +355,7 @@ Cgo
                     <tabBarItem key="tabBarItem" title="Wallpaper" image="camera.png" id="eTf-iU-yBk"/>
                     <navigationItem key="navigationItem" id="uWJ-0O-gYX"/>
                     <connections>
-                        <outlet property="spinner" destination="6cZ-le-HZa" id="oij-UM-C3Y"/>
+                        <outlet property="spinner" destination="aQh-K2-kCc" id="ihw-gT-F7m"/>
                         <segue destination="Qoe-kh-zF9" kind="push" identifier="segue_wallpaper" id="epV-8h-juA"/>
                     </connections>
                 </collectionViewController>
