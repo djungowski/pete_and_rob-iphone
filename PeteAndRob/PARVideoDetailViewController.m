@@ -67,6 +67,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     self.title = _video.title;
+    _titleLabel.text = _video.title;
     _videoDetailTextView.text = _video.detail;
     
     if(![PARAppDelegate isOnline]){

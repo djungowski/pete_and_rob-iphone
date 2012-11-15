@@ -19,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *videoImageView;
 @property (weak, nonatomic) IBOutlet UITextView *videoDetailTextView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activiyIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end

@@ -88,6 +88,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="280" type="user" id="SRF-xh-31e"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" type="user" id="fZb-OE-o5u"/>
+                                    <constraint firstAttribute="height" constant="270" id="o95-V0-2QH"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -109,20 +110,32 @@
                                     <action selector="playButtonTouched:" destination="akz-so-DyB" eventType="touchUpInside" id="Wqz-m2-LbT"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQ1-2D-dj0">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" type="user" id="2Fd-66-HA5"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="272" type="user" id="esw-5U-2hk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="eQ1-2D-dj0" secondAttribute="trailing" constant="20" type="user" id="038-J5-iGi"/>
                             <constraint firstItem="k9D-vo-9kK" firstAttribute="leading" secondItem="HMx-PO-Cc6" secondAttribute="leading" constant="20" type="user" id="5em-0E-BXm"/>
                             <constraint firstItem="e50-dN-88c" firstAttribute="leading" secondItem="ot8-6v-8QP" secondAttribute="leading" type="default" id="BrL-1z-E2h"/>
-                            <constraint firstAttribute="bottom" secondItem="k9D-vo-9kK" secondAttribute="bottom" constant="20" symbolic="YES" type="user" id="BrX-OF-DNT"/>
                             <constraint firstAttribute="centerX" secondItem="e50-dN-88c" secondAttribute="centerX" type="user" id="CFO-HN-moz"/>
-                            <constraint firstAttribute="bottom" secondItem="k9D-vo-9kK" secondAttribute="bottom" constant="20" type="user" id="GuG-Me-UhS"/>
+                            <constraint firstAttribute="trailing" secondItem="eQ1-2D-dj0" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="D5L-X6-MfD"/>
+                            <constraint firstItem="eQ1-2D-dj0" firstAttribute="top" secondItem="HMx-PO-Cc6" secondAttribute="top" constant="139" type="user" id="Fnn-zJ-Irs"/>
                             <constraint firstItem="e50-dN-88c" firstAttribute="top" secondItem="HMx-PO-Cc6" secondAttribute="top" constant="20" type="user" id="Imz-xw-RZw"/>
                             <constraint firstItem="ot8-6v-8QP" firstAttribute="top" secondItem="HMx-PO-Cc6" secondAttribute="top" constant="20" symbolic="YES" type="default" id="LbK-YW-tPU"/>
                             <constraint firstItem="e50-dN-88c" firstAttribute="bottom" secondItem="ot8-6v-8QP" secondAttribute="bottom" type="default" id="NZp-Ja-WHd"/>
+                            <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="eQ1-2D-dj0" secondAttribute="bottom" constant="295" type="user" id="Nfu-WO-lrf"/>
                             <constraint firstItem="DkV-Sw-uqe" firstAttribute="top" secondItem="HMx-PO-Cc6" secondAttribute="top" constant="110" type="user" id="NuX-tv-mQN"/>
                             <constraint firstItem="e50-dN-88c" firstAttribute="top" secondItem="HMx-PO-Cc6" secondAttribute="top" constant="20" symbolic="YES" type="user" id="SI9-XJ-wED"/>
-                            <constraint firstItem="k9D-vo-9kK" firstAttribute="top" secondItem="HMx-PO-Cc6" secondAttribute="top" constant="155" type="user" id="Ur6-6T-Ad0"/>
+                            <constraint firstItem="k9D-vo-9kK" firstAttribute="top" secondItem="HMx-PO-Cc6" secondAttribute="top" constant="155" type="user" id="TwW-BD-68R"/>
+                            <constraint firstItem="eQ1-2D-dj0" firstAttribute="leading" secondItem="HMx-PO-Cc6" secondAttribute="leading" constant="28" type="user" id="cQY-nD-zva"/>
                             <constraint firstAttribute="trailing" secondItem="k9D-vo-9kK" secondAttribute="trailing" constant="20" type="user" id="hdz-4D-XB8"/>
                             <constraint firstItem="e50-dN-88c" firstAttribute="trailing" secondItem="ot8-6v-8QP" secondAttribute="trailing" type="default" id="i5F-a8-GuK"/>
                             <constraint firstAttribute="centerX" secondItem="DkV-Sw-uqe" secondAttribute="centerX" type="user" id="nb3-CL-ptW"/>
@@ -132,6 +145,7 @@
                     <connections>
                         <outlet property="activiyIndicator" destination="DkV-Sw-uqe" id="A0x-Ks-QgS"/>
                         <outlet property="playButton" destination="ot8-6v-8QP" id="hBx-oA-x2Q"/>
+                        <outlet property="titleLabel" destination="eQ1-2D-dj0" id="kV9-ou-5xP"/>
                         <outlet property="videoDetailTextView" destination="k9D-vo-9kK" id="hB5-UX-BH6"/>
                         <outlet property="videoImageView" destination="e50-dN-88c" id="f3V-LO-mBt"/>
                     </connections>
@@ -181,7 +195,7 @@
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content"> Pete &amp; Rob c/o Pete Roessler Isartalstr. 16 80469 Munich Germany E-Mail contact@peteandrob.com Phone +491781943210
+                                        <string key="content"> Pete &amp; Rob c/o Pete Roessler Isartalstr. 16 80469 Munich Germany E-Mail contact@peteandrob.com
 
 
 </string>
@@ -387,7 +401,7 @@ Cgo
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <size key="titleShadowOffset" width="0.0" height="-1"/>
-                                        <state key="normal" title="320x240">
+                                        <state key="normal" title="iPhone 3GS">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -406,7 +420,7 @@ Cgo
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <size key="titleShadowOffset" width="0.0" height="-1"/>
-                                        <state key="normal" title="640x960">
+                                        <state key="normal" title="iPhone 4">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -424,7 +438,7 @@ Cgo
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <size key="titleShadowOffset" width="0.0" height="-1"/>
-                                        <state key="normal" title="640x1136">
+                                        <state key="normal" title="iPhone 5">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -498,6 +512,7 @@ Cgo
                 <relationship kind="action" name="playButtonTouched:"/>
                 <relationship kind="outlet" name="activiyIndicator" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="playButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="videoDetailTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="videoImageView" candidateClass="UIImageView"/>
             </relationships>
