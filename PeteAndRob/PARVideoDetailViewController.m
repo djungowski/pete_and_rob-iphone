@@ -66,7 +66,6 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    self.title = _video.title;
     _titleLabel.text = _video.title;
     _videoDetailTextView.text = _video.detail;
     
@@ -99,7 +98,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)playButtonTouched:(id)sender
@@ -113,6 +111,15 @@
     [moviePlayer setFullscreen:YES animated:YES];
 
 }
+
+- (IBAction)shareButtonTouched:(id)sender
+{
+    id items = @[_video.title, _video.image, _video.url];
+    UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
+    avc.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeSaveToCameraRoll, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard];
+    [self presentViewController:avc animated:YES completion:nil];
+}
+
 
 - (void)moviePlayBackDidFinish:(NSNotification*)notification
 {

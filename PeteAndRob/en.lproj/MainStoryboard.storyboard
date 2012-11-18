@@ -141,7 +141,13 @@
                             <constraint firstAttribute="centerX" secondItem="DkV-Sw-uqe" secondAttribute="centerX" type="user" id="nb3-CL-ptW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="GJt-ak-EFB"/>
+                    <navigationItem key="navigationItem" id="GJt-ak-EFB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Tf2-xk-ZEt">
+                            <connections>
+                                <action selector="shareButtonTouched:" destination="akz-so-DyB" id="2ja-CL-Wgo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activiyIndicator" destination="DkV-Sw-uqe" id="A0x-Ks-QgS"/>
                         <outlet property="playButton" destination="ot8-6v-8QP" id="hBx-oA-x2Q"/>
@@ -539,9 +545,6 @@ Cgo
         <class className="PARWallpaperDetailController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PARWallpaperDetailController.h"/>
             <relationships>
-                <relationship kind="action" name="highTouched:"/>
-                <relationship kind="action" name="lowTouched:"/>
-                <relationship kind="action" name="normalTouched:"/>
                 <relationship kind="outlet" name="highImageButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="lowImageButton" candidateClass="UIButton"/>
@@ -559,9 +562,6 @@ Cgo
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
