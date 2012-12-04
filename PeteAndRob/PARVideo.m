@@ -26,7 +26,8 @@
     return @{ @"title":@"title",
               @"imageString":@"image",
               @"detail":@"description",
-              @"url":@"video"
+              @"url":@"video",
+              @"link":@"socurl"
             };
 }
 

@@ -114,7 +114,7 @@
 
 - (IBAction)shareButtonTouched:(id)sender
 {
-    id items = @[_video.title, _video.image, _video.url];
+    id items = @[_video.title, _video.image, _video.link];
     UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
     avc.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeSaveToCameraRoll, UIActivityTypeAssignToContact, UIActivityTypeCopyToPasteboard];
     [self presentViewController:avc animated:YES completion:nil];
